@@ -1,13 +1,21 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"intelli-learn/backend/internal/routes"
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	res := gin.Default()
-	res.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, "this is working :3")
-	})
-	res.Run()
+	err := godotenv.Load()
+
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	PORT := os.Getenv("PORT")
+
+	routes.InitRoutes().Run(PORT)
 }

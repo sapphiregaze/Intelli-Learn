@@ -19,3 +19,8 @@
 
 # Go workspace file
 go.work
+
+# Local env files
+.env
+.env.*
+!.env.example
