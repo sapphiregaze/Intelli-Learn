@@ -5,7 +5,9 @@ import (
 	"intelli-learn/backend/internal/routes"
 	"log"
 	"os"
+	"strings"
 
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
 
@@ -16,6 +18,15 @@ func main() {
 	}
 
 	PORT := os.Getenv("PORT")
+
+	switch strings.ToLower(os.Getenv("GIN_MODE")) {
+	case "release":
+		gin.SetMode(gin.ReleaseMode)
+	case "test":
+		gin.SetMode(gin.TestMode)
+	default:
+		gin.SetMode(gin.DebugMode)
+	}
 
 	database.InitDatabase()
 	routes.InitRoutes().Run(PORT)
