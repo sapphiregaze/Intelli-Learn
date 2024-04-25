@@ -1,8 +1,28 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import ImagePicker from 'react-native-image-picker'; 
 
 export default function App() {
+  const openCamera = () => {
+    const options = {
+      mediaType: 'photo',
+      quality: 1,
+    };
+
+    ImagePicker.launchCamera(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        console.log('Image captured successfully:', response.uri);
+      }
+    });
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -13,7 +33,7 @@ export default function App() {
           <Text style={styles.headerTextDark}>Flashcards: 12</Text>
         </View>
         <TouchableOpacity style={styles.menuButton}>
-          {/* <Image source={require('./menu_icon.png')} style={styles.menuIcon} /> */}
+          <Image source={require('./assets/menu.png')} style={styles.menuIcon} />
         </TouchableOpacity>
       </View>
 
@@ -26,22 +46,18 @@ export default function App() {
         </View>
       </View>
 
-      {/* Square Buttons */}
+      {/* Bottom Buttons */}
       <View style={styles.bottomButtons}>
-        <TouchableOpacity style={styles.squareButton}>
-          {/* <Image source={require('./scan_image.jpg')} style={styles.buttonImage} /> */}
+        <TouchableOpacity style={styles.squareButton} onPress={openCamera}>
           <Text style={styles.buttonText}>Scan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.squareButton}>
-          {/* <Image source={require('./cards_image.jpg')} style={styles.buttonImage} /> */}
           <Text style={styles.buttonText}>Flashcards</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.squareButton}>
-          {/* <Image source={require('./chart_image.jpg')} style={styles.buttonImage} /> */}
           <Text style={styles.buttonText}>Chart</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.squareButton}>
-          {/* <Image source={require('./connect_image.jpg')} style={styles.buttonImage} /> */}
           <Text style={styles.buttonText}>Connect</Text>
         </TouchableOpacity>
       </View>
@@ -52,7 +68,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#B3E5FC', //pastel sky blue background
+    backgroundColor: '#B3E5FC', 
   },
   header: {
     flexDirection: 'row',
@@ -64,10 +80,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#E5E5E5',
     padding: 10,
+    marginTop: 10, 
   },
   headerTextDark: {
     fontSize: 14,
-    color: '#0D47A1', //dark blue
+    color: '#0D47A1', 
   },
   menuButton: {
     padding: 10,
@@ -75,7 +92,7 @@ const styles = StyleSheet.create({
   menuIcon: {
     width: 30,
     height: 30,
-    tintColor: '#0D47A1', //dark blue
+    tintColor: '#0D47A1', 
   },
   body: {
     flex: 1,
@@ -95,11 +112,11 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#0D47A1', //dark blue
+    color: '#0D47A1', 
   },
   bottomButtons: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly', //space between buttons
+    justifyContent: 'space-evenly', 
     marginBottom: 20,
   },
   squareButton: {
