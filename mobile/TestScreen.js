@@ -4,23 +4,56 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'rea
 export default function TestScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* En-tête */}
+      {/* Header */}
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => console.log('Menu pressed')}>
+          <Image
+            source={require('./assets/menu.png')}  
+            style={styles.headerIcon}
+          />
+        </TouchableOpacity>
         <Text style={styles.headerText}>IntelliLearn</Text>
+        <TouchableOpacity onPress={() => console.log('Profile pressed')}>
+          <Image
+            source={require('./assets/profile.png')}  
+            style={styles.headerIcon}
+          />
+        </TouchableOpacity>
       </View>
 
-      {/* Contenu principal */}
+      {/* Main content */}
       <ScrollView style={styles.content}>
-        <View style={styles.shortCard}>
-          <Text style={styles.cardTitle}>FlashCards : 23</Text>
-          <Text style={styles.cardTitle}>Notes : 15</Text>
+        {/* Container for FlashCards info and Progress Bar */}
+        <View style={styles.infoAndProgressContainer}>
+          <View style={styles.shortCard}>
+            <Text style={styles.cardTitle}>FlashCards: 23</Text>
+            <Text style={styles.cardTitle}>Notes: 15</Text>
+          </View>
+          {/* Progress Bar Area */}
+          <View style={styles.progressBarContainer}>
+            <Text style={styles.progressBarLabel}>Progress Bar</Text>
+            <View style={styles.progressBarBackground}>
+              <View style={styles.progressBar} />
+            </View>
+          </View>
         </View>
+
         <Text style={styles.toDoListText}>To Do List</Text>
 
-        {/* Vue pour les carrés blancs */}
+        {/* View for white squares with spots */}
         <View style={styles.squareContainer}>
-            <View style={styles.square}></View>
-            <View style={styles.square}></View>
+          <View style={styles.square}>
+            <Text style={styles.taskText}>• Review algebra formulas</Text>
+            <Text style={styles.taskText}>• Write essay draft</Text>
+            <Text style={styles.taskText}>• Prepare hackhaton </Text>
+            <Text style={styles.taskText}>• Complete lab report</Text>
+          </View>
+          <View style={styles.square}>
+            <Text style={styles.taskText}>• Study for CS exam</Text>
+            <Text style={styles.taskText}>• Go to Turing lab</Text>
+            <Text style={styles.taskText}>• Organize notes</Text>
+            <Text style={styles.taskText}>• Research for science project</Text>
+          </View>
         </View>
 
         <View style={styles.transparentRectangle}></View>
@@ -35,7 +68,7 @@ export default function TestScreen({ navigation }) {
             ))}
           </View>
 
-          {/* Deuxième ligne de jours de la semaine */}
+          {/* Second line of days of the week */}
           <View style={styles.dayCircles}>
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
               <View key={index} style={styles.circle}>
@@ -48,7 +81,7 @@ export default function TestScreen({ navigation }) {
 
       </ScrollView>
 
-      {/* Barre de navigation en bas avec des icônes */}
+      {/* Navigation bar at the bottom with icons */}
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Home')}>
           <Image source={require('./assets/home.png')} style={styles.navIcon} />
@@ -72,7 +105,7 @@ export default function TestScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* Carré arrondi au-dessus du bouton "Scan" avec une image */}
+      {/* Rounded square above the "Scan" button with an image */}
       <TouchableOpacity style={styles.scanButton} onPress={() => console.log('Scan pressed')}>
         <Image source={require('./assets/scan.png')} style={styles.scanImage} />
       </TouchableOpacity>
@@ -86,11 +119,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#B3E5FC', 
   },
   header: {
-    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',  
     alignItems: 'center',
     paddingVertical: 20,
     paddingHorizontal: 20,
     backgroundColor: '#B3E5FC', 
+    width: '100%',  
+  },
+  headerIcon: {
+    width: 30,
+    height: 30,
   },
 
   transparentRectangle: {
@@ -112,19 +151,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
-  shortCard: {
-    backgroundColor: '#E3F2FD',
-    borderRadius: 20,
-    padding: 10, 
-    marginHorizontal: 20,
-    marginTop: 20,
-    width: '40%', 
-  },
-  cardTitle: {
-    fontSize: 14, 
-    color: '#0D47A1',
-    marginBottom: 5, 
-  },
+
   toDoListText: {
     fontSize: 18,
     color: '#0D47A1',
@@ -212,4 +239,67 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 12,
   },
+
+  square: {
+    width: 160, 
+    height: 160, 
+    borderRadius: 17, 
+    backgroundColor: '#E3F2FD', 
+    justifyContent: 'center',  
+    alignItems: 'center',      
+    padding: 10,               
+  },
+  taskText: {
+    color: '#0D47A1',  
+    fontSize: 14,       
+    textAlign: 'left',         
+    alignSelf: 'flex-start',   
+    marginBottom: 5,
+    width: '100%',             
+  },
+
+  infoAndProgressContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 30,
+    marginTop: 20,
+  },
+  progressBarContainer: {
+    justifyContent: 'center',
+    marginLeft: -100,
+  },
+  progressBarLabel: {
+    fontSize: 15,
+    color: '#0D47A1',
+    marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  progressBarBackground: {
+    width: 100,  
+    height: 20,
+    backgroundColor: '#ccc',
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  progressBar: {
+    width: '62%',  
+    height: '100%',
+    backgroundColor: '#0D47A1',
+    borderRadius: 10,
+  },
+
+  shortCard: {
+    backgroundColor: '#E3F2FD',
+    borderRadius: 15,
+    padding: 10,
+    width: '50%',  
+    marginHorizontal: -10,  
+  },
+  cardTitle: {
+    fontSize: 14,
+    color: '#0D47A1',
+    marginBottom: 5,
+  },
+
 });
