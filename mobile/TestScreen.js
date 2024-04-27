@@ -18,9 +18,6 @@ export default function TestScreen({ navigation }) {
         <Text style={styles.toDoListText}>To Do List</Text>
       </ScrollView>
 
-      {/* Carré arrondi au-dessus du bouton "Scan" */}
-      <View style={styles.scanButton}></View>
-
       {/* Barre de navigation en bas */}
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Home')}>
@@ -39,6 +36,9 @@ export default function TestScreen({ navigation }) {
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Connect</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Carré arrondi au-dessus du bouton "Scan" */}
+      <View style={styles.scanButton}></View>
     </View>
   );
 }
@@ -66,30 +66,30 @@ const styles = StyleSheet.create({
   shortCard: {
     backgroundColor: '#E3F2FD',
     borderRadius: 20,
-    padding: 10, // Réduction du padding
+    padding: 10, 
     marginHorizontal: 20,
     marginTop: 20,
-    width: '40%', // Largeur réduite
+    width: '40%', 
   },
   cardTitle: {
-    fontSize: 14, // Réduction de la taille de la police
+    fontSize: 14, 
     color: '#0D47A1',
-    marginBottom: 5, // Espacement réduit
+    marginBottom: 5, 
   },
   toDoListText: {
     fontSize: 18,
     color: '#0D47A1',
     fontWeight: 'bold',
-    alignSelf: 'flex-start', // Alignement à gauche
-    marginLeft: 20, // Marge à gauche
+    alignSelf: 'flex-start', 
+    marginLeft: 20, 
     marginTop: 20,
   },
   navBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF', // Fond blanc
-    height: 70, // Hauteur de la barre
+    backgroundColor: '#FFFFFF', 
+    height: 80, 
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     shadowColor: '#000',
@@ -101,22 +101,24 @@ const styles = StyleSheet.create({
   navItem: {
     alignItems: 'center',
     flex: 1,
-    marginHorizontal: 5, // Espace entre les boutons réduit
+    marginHorizontal: 2, 
   },
   navText: {
     fontSize: 12,
     textAlign: 'center',
+    marginTop: 32, 
   },
   navTextDarkBlue: {
-    color: '#0D47A1', // Couleur de texte bleu marine
+    color: '#0D47A1', 
   },
   scanButton: {
     position: 'absolute',
-    top: -40, // Décalage vers le haut
-    alignSelf: 'center', // Centrage horizontal
+    bottom: 0, 
+    alignSelf: 'center', 
     width: 70,
     height: 70,
     borderRadius: 15,
-    backgroundColor: '#0D47A1', // Fond bleu marine
+    backgroundColor: '#0D47A1', 
+    marginBottom: 37, 
   },
 });
