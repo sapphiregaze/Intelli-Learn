@@ -1,25 +1,31 @@
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function AuthenticationScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Authentication</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={true}
-      />
-      <View style={styles.buttonContainer}>
-        <Button title="Login" onPress={() => navigation.navigate('Test')} />
-        <Button title="Create Account" onPress={() => navigation.navigate('CreateAccount')} />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
       </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
+      </View>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Test')}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
+        <Text style={styles.buttonText}>Create Account</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -29,25 +35,45 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B3E5FC', // Assuming this is the background color
+    backgroundColor: '#B3E5FC',
   },
   title: {
     fontSize: 24,
-    color: '#0D47A1', // Matching the text color
-    marginBottom: 20,
+    color: '#0D47A1',
+    marginBottom: 30,
+    fontWeight: 'bold',
+  },
+  inputContainer: {
+    width: '80%',
+    marginBottom: 15,
   },
   input: {
-    width: '80%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
+    width: '100%',
+    height: 50,
+    borderColor: '#0D47A1',
+    borderWidth: 2,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    color: '#0D47A1',
+    backgroundColor: 'white',  // Makes the input field standout
   },
-  buttonContainer: {
+  button: {
     width: '80%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    paddingVertical: 12,
+    backgroundColor: '#0D47A1',
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });

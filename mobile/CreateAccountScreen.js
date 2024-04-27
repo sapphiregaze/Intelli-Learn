@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function CreateAccountScreen({ navigation }) {
   return (
@@ -26,7 +26,9 @@ export default function CreateAccountScreen({ navigation }) {
         placeholder="Confirm Password"
         secureTextEntry={true}
       />
-      <Button title="Sign Up" onPress={() => console.log('Sign Up pressed')} />
+      <TouchableOpacity style={styles.button} onPress={() => console.log('Sign Up pressed')}>
+        <Text style={styles.buttonText}>Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -36,20 +38,41 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B3E5FC', // Assuming this is your app's background color
+    backgroundColor: '#B3E5FC',
   },
   title: {
     fontSize: 24,
-    color: '#0D47A1', // Matching the text color
-    marginBottom: 20,
+    color: '#0D47A1',
+    fontWeight: 'bold',
+    marginBottom: 30,
   },
   input: {
     width: '80%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
+    height: 50,
+    borderColor: '#0D47A1',
+    borderWidth: 2,
+    borderRadius: 10,
+    marginBottom: 15,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    backgroundColor: 'white',
+  },
+  button: {
+    width: '80%',
+    paddingVertical: 12,
+    backgroundColor: '#0D47A1',
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
