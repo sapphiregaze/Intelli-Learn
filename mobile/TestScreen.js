@@ -12,11 +12,14 @@ export default function TestScreen({ navigation }) {
       {/* Contenu principal */}
       <ScrollView style={styles.content}>
         <View style={styles.shortCard}>
-          <Text style={styles.cardTitle}>FlashCards Total : 23</Text>
+          <Text style={styles.cardTitle}>FlashCards : 23</Text>
           <Text style={styles.cardTitle}>Notes : 15</Text>
         </View>
         <Text style={styles.toDoListText}>To Do List</Text>
       </ScrollView>
+
+      {/* Carré arrondi au-dessus du bouton "Scan" */}
+      <View style={styles.scanButton}></View>
 
       {/* Barre de navigation en bas */}
       <View style={styles.navBar}>
@@ -63,21 +66,22 @@ const styles = StyleSheet.create({
   shortCard: {
     backgroundColor: '#E3F2FD',
     borderRadius: 20,
-    padding: 20,
+    padding: 10, // Réduction du padding
     marginHorizontal: 20,
     marginTop: 20,
-    width: '50%', // Largeur réduite
+    width: '40%', // Largeur réduite
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 14, // Réduction de la taille de la police
     color: '#0D47A1',
-    marginBottom: 10,
+    marginBottom: 5, // Espacement réduit
   },
   toDoListText: {
     fontSize: 18,
     color: '#0D47A1',
     fontWeight: 'bold',
-    alignSelf: 'center',
+    alignSelf: 'flex-start', // Alignement à gauche
+    marginLeft: 20, // Marge à gauche
     marginTop: 20,
   },
   navBar: {
@@ -105,5 +109,14 @@ const styles = StyleSheet.create({
   },
   navTextDarkBlue: {
     color: '#0D47A1', // Couleur de texte bleu marine
+  },
+  scanButton: {
+    position: 'absolute',
+    top: -40, // Décalage vers le haut
+    alignSelf: 'center', // Centrage horizontal
+    width: 70,
+    height: 70,
+    borderRadius: 15,
+    backgroundColor: '#0D47A1', // Fond bleu marine
   },
 });
