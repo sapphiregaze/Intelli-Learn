@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
 
   transparentRectangle: {
     position: 'absolute',
-    bottom: -170,
+    bottom: -200,
     alignSelf: 'center',
     width: '90%',
     height: 140, 
@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start', 
     marginLeft: 20, 
     marginTop: 20,
+    bottom: -35,
   },
 
   squareContainer: {
@@ -166,6 +167,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 20,
     marginTop: 20, 
+    bottom: -35
   },
   square: {
     width: 160, 
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     marginHorizontal: 2, 
-    paddingTop: 30,
+    paddingTop: 40,
   },
   navIcon: {
     width: 30, 
@@ -249,9 +251,9 @@ const styles = StyleSheet.create({
 
   square: {
     width: 160, 
-    height: 160, 
+    height: 130, 
     borderRadius: 17, 
-    backgroundColor: '#E3F2FD', 
+    backgroundColor: '#FFFFFF', 
     justifyContent: 'center',  
     alignItems: 'center',      
     padding: 10,               
@@ -275,12 +277,14 @@ const styles = StyleSheet.create({
   progressBarContainer: {
     justifyContent: 'center',
     marginLeft: -100,
+    bottom: -30,
   },
   progressBarLabel: {
     fontSize: 15,
     color: '#0D47A1',
     marginBottom: 10,
     fontWeight: 'bold',
+
   },
   progressBarBackground: {
     width: 140,  
@@ -297,11 +301,12 @@ const styles = StyleSheet.create({
   },
 
   shortCard: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: '#FFFFFF',
     borderRadius: 15,
     padding: 10,
     width: '50%',  
-    marginHorizontal: -10,  
+    marginHorizontal: -10, 
+    bottom: -30,
   },
   cardTitle: {
     fontSize: 14,
