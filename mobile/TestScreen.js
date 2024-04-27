@@ -6,10 +6,13 @@ export default function TestScreen({ navigation }) {
     <View style={styles.container}>
       {/* En-tête */}
       <View style={styles.header}>
-        <Text style={styles.logo}>IntelliLearn</Text>
-        <TouchableOpacity style={styles.profileButton} onPress={() => console.log('Profil')}>
-          <Text style={styles.profileText}>Profil</Text>
-        </TouchableOpacity>
+        <View style={styles.profile}>
+          {/* Ici, vous pouvez ajouter une image de profil */}
+        </View>
+        <View style={styles.toDoList}>
+          <View style={styles.toDoListSquare}></View>
+          <View style={styles.toDoListSquare}></View>
+        </View>
       </View>
 
       {/* Contenu principal */}
@@ -33,8 +36,8 @@ export default function TestScreen({ navigation }) {
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Flashcards')}>
           <Text style={[styles.navText, styles.navTextBlue]}>Flashcards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Scan')}>
-          <View style={[styles.navItemCenter, styles.scanButton]}>
+        <TouchableOpacity style={styles.navItemCenter} onPress={() => console.log('Scan')}>
+          <View style={styles.scanButton}>
             <Text style={[styles.navText, styles.navTextWhite]}>Scan</Text>
           </View>
         </TouchableOpacity>
@@ -60,17 +63,22 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#B3E5FC', // Fond bleu ciel
   },
-  logo: {
-    fontSize: 24,
-    color: '#0D47A1',
-    fontWeight: 'bold',
+  profile: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#0D47A1', // Couleur bleu foncé
   },
-  profileButton: {
-    // Ici, vous pouvez ajouter un style pour améliorer l'apparence du bouton profil
+  toDoList: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  profileText: {
-    fontSize: 18,
-    color: '#0D47A1',
+  toDoListSquare: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    backgroundColor: '#0D47A1', // Couleur bleu foncé
+    marginHorizontal: 5,
   },
   content: {
     flex: 1,
@@ -90,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#FFFFFF', // Fond blanc
-    height: 70, // Augmentation de la hauteur de la barre
+    height: 70, // Hauteur de la barre
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     shadowColor: '#000',
@@ -104,20 +112,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navItemCenter: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  scanButton: {
+    width: 60,
+    height: 60,
+    borderRadius: 15,
+    backgroundColor: '#B3E5FC', // Fond bleu ciel
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    marginBottom: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.6,
     shadowRadius: 2,
     elevation: 4,
-    transform: [{ translateY: -15 }], // Fait sortir le bouton vers le haut
-  },
-  scanButton: {
-    backgroundColor: '#B3E5FC', // Fond bleu ciel
+    transform: [{ translateY: -5 }], // Fait sortir le bouton vers le haut
   },
   navText: {
     fontSize: 12,
