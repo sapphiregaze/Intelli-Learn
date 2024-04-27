@@ -16,6 +16,36 @@ export default function TestScreen({ navigation }) {
           <Text style={styles.cardTitle}>Notes : 15</Text>
         </View>
         <Text style={styles.toDoListText}>To Do List</Text>
+
+        {/* Vue pour les carrés blancs */}
+        <View style={styles.squareContainer}>
+            <View style={styles.square}></View>
+            <View style={styles.square}></View>
+        </View>
+
+        <View style={styles.transparentRectangle}></View>
+
+        <View style={styles.transparentRectangle}>
+          <View style={styles.dayCircles}>
+            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
+              <View key={index} style={styles.circle}>
+                <Text style={styles.dayNumber}>{index + 1}</Text>
+                <Text style={styles.dayName}>{day}</Text>
+              </View>
+            ))}
+          </View>
+
+          {/* Deuxième ligne de jours de la semaine */}
+          <View style={styles.dayCircles}>
+            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
+              <View key={index} style={styles.circle}>
+                <Text style={styles.dayNumber}>{index + 8}</Text>
+                <Text style={styles.dayName}>{day}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
       </ScrollView>
 
       {/* Barre de navigation en bas avec des icônes */}
@@ -53,19 +83,31 @@ export default function TestScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#B3E5FC', // Fond bleu ciel
+    backgroundColor: '#B3E5FC', 
   },
   header: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 20,
     paddingHorizontal: 20,
-    backgroundColor: '#B3E5FC', // Fond bleu ciel
+    backgroundColor: '#B3E5FC', 
   },
+
+  transparentRectangle: {
+    position: 'absolute',
+    bottom: -170,
+    alignSelf: 'center',
+    width: '90%',
+    height: 140, 
+    borderRadius: 17, 
+    backgroundColor: '#0D47A1', 
+    zIndex: -1, 
+  },
+
   headerText: {
-    fontSize: 24, // Taille de police augmentée
-    color: '#0D47A1', // Couleur de texte bleu foncé
-    fontWeight: 'bold', // Police en gras
+    fontSize: 24, 
+    color: '#0D47A1', 
+    fontWeight: 'bold', 
   },
   content: {
     flex: 1,
@@ -91,6 +133,20 @@ const styles = StyleSheet.create({
     marginLeft: 20, 
     marginTop: 20,
   },
+
+  squareContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+    marginTop: 20, 
+  },
+  square: {
+    width: 160, 
+    height: 160, 
+    borderRadius: 17, 
+    backgroundColor: '#E3F2FD', 
+  },
+
   navBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -116,10 +172,8 @@ const styles = StyleSheet.create({
     marginTop: 10, 
   },
   navIcon: {
-    width: 30, // Ajustez la taille de l'icône selon vos besoins
-    height: 30, // Ajustez la taille de l'icône selon vos besoins
-    
-
+    width: 30, 
+    height: 30, 
   },
   navTextDarkBlue: {
     color: '#0D47A1', 
@@ -128,7 +182,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     alignSelf: 'center',
-    alignItems: 'center', // Ajout pour centrer l'image
+    alignItems: 'center', 
     justifyContent: 'center',
     width: 70,
     height: 70,
@@ -139,5 +193,23 @@ const styles = StyleSheet.create({
   scanImage: {
     width: 40,
     height: 40,
+  },
+
+  dayCircles: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 20,
+  },
+  circle: {
+    alignItems: 'center',
+  },
+  dayNumber: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  dayName: {
+    color: '#FFFFFF',
+    fontSize: 12,
   },
 });
