@@ -6,46 +6,34 @@ export default function TestScreen({ navigation }) {
     <View style={styles.container}>
       {/* En-tête */}
       <View style={styles.header}>
-        <View style={styles.profile}>
-          {/* Ici, vous pouvez ajouter une image de profil */}
-        </View>
-        <View style={styles.toDoList}>
-          <View style={styles.toDoListSquare}></View>
-          <View style={styles.toDoListSquare}></View>
-        </View>
+        <Text style={styles.headerText}>IntelliLearn</Text>
       </View>
 
       {/* Contenu principal */}
       <ScrollView style={styles.content}>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>To Do List</Text>
+        <View style={styles.shortCard}>
+          <Text style={styles.cardTitle}>FlashCards Total : 23</Text>
+          <Text style={styles.cardTitle}>Notes : 15</Text>
         </View>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Flashcards</Text>
-        </View>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Profil</Text>
-        </View>
+        <Text style={styles.toDoListText}>To Do List</Text>
       </ScrollView>
 
       {/* Barre de navigation en bas */}
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Home')}>
-          <Text style={[styles.navText, styles.navTextBlue]}>Home</Text>
+          <Text style={[styles.navText, styles.navTextDarkBlue]}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Flashcards')}>
-          <Text style={[styles.navText, styles.navTextBlue]}>Flashcards</Text>
+          <Text style={[styles.navText, styles.navTextDarkBlue]}>Flashcards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItemCenter} onPress={() => console.log('Scan')}>
-          <View style={styles.scanButton}>
-            <Text style={[styles.navText, styles.navTextWhite]}>Scan</Text>
-          </View>
+        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Scan')}>
+          <Text style={[styles.navText, styles.navTextDarkBlue]}>Scan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Notes')}>
-          <Text style={[styles.navText, styles.navTextBlue]}>Notes</Text>
+          <Text style={[styles.navText, styles.navTextDarkBlue]}>Notes</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Connect')}>
-          <Text style={[styles.navText, styles.navTextBlue]}>Connect</Text>
+          <Text style={[styles.navText, styles.navTextDarkBlue]}>Connect</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -58,40 +46,39 @@ const styles = StyleSheet.create({
     backgroundColor: '#B3E5FC', // Fond bleu ciel
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#B3E5FC', // Fond bleu ciel
   },
-  profile: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#0D47A1', // Couleur bleu foncé
-  },
-  toDoList: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  toDoListSquare: {
-    width: 50,
-    height: 50,
-    borderRadius: 10,
-    backgroundColor: '#0D47A1', // Couleur bleu foncé
-    marginHorizontal: 5,
+  headerText: {
+    fontSize: 24, // Taille de police augmentée
+    color: '#0D47A1', // Couleur de texte bleu foncé
+    fontWeight: 'bold', // Police en gras
   },
   content: {
     flex: 1,
   },
-  card: {
+  shortCard: {
     backgroundColor: '#E3F2FD',
     borderRadius: 20,
     padding: 20,
-    margin: 10,
+    marginHorizontal: 20,
+    marginTop: 20,
+    width: '50%', // Largeur réduite
   },
   cardTitle: {
     fontSize: 18,
     color: '#0D47A1',
+    marginBottom: 10,
+  },
+  toDoListText: {
+    fontSize: 18,
+    color: '#0D47A1',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginTop: 20,
   },
   navBar: {
     flexDirection: 'row',
@@ -110,33 +97,13 @@ const styles = StyleSheet.create({
   navItem: {
     alignItems: 'center',
     flex: 1,
-  },
-  navItemCenter: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  scanButton: {
-    width: 60,
-    height: 60,
-    borderRadius: 15,
-    backgroundColor: '#B3E5FC', // Fond bleu ciel
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.6,
-    shadowRadius: 2,
-    elevation: 4,
-    transform: [{ translateY: -5 }], // Fait sortir le bouton vers le haut
+    marginHorizontal: 5, // Espace entre les boutons réduit
   },
   navText: {
     fontSize: 12,
+    textAlign: 'center',
   },
-  navTextBlue: {
-    color: '#B3E5FC', // Couleur de texte bleu ciel
-  },
-  navTextWhite: {
-    color: '#FFFFFF', // Couleur de texte blanc
+  navTextDarkBlue: {
+    color: '#0D47A1', // Couleur de texte bleu marine
   },
 });
