@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator, Image } from 'react-native';
+import { StyleSheet, View, ActivityIndicator, Image, Text } from 'react-native';
+import AuthenticationScreen from './AuthenticationScreen';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* Votre contenu actuel ici */}
+      <AuthenticationScreen />
     </View>
   );
 }
