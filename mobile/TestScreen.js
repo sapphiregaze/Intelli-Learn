@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 
 export default function TestScreen({ navigation }) {
   return (
@@ -37,8 +37,10 @@ export default function TestScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* Carré arrondi au-dessus du bouton "Scan" */}
-      <View style={styles.scanButton}></View>
+      {/* Carré arrondi au-dessus du bouton "Scan" avec une image */}
+      <TouchableOpacity style={styles.scanButton} onPress={() => console.log('Scan pressed')}>
+        <Image source={require('./assets/scan.png')} style={styles.scanImage} />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -113,12 +115,18 @@ const styles = StyleSheet.create({
   },
   scanButton: {
     position: 'absolute',
-    bottom: 0, 
-    alignSelf: 'center', 
+    bottom: 0,
+    alignSelf: 'center',
+    alignItems: 'center', // Ajout pour centrer l'image
+    justifyContent: 'center',
     width: 70,
     height: 70,
     borderRadius: 15,
-    backgroundColor: '#0D47A1', 
-    marginBottom: 37, 
+    backgroundColor: '#0D47A1',
+    marginBottom: 37,
+  },  
+  scanImage: {
+    width: 40,
+    height: 40,
   },
 });
