@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ActivityIndicator, Image, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AuthenticationScreen from './AuthenticationScreen';
+import CreateAccountScreen from './CreateAccountScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simuler un chargement de 3 secondes avant de passer à la page suivante
     const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
@@ -25,18 +28,16 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <AuthenticationScreen />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Authentication" component={AuthenticationScreen} />
+        <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#B3E5FC',
-  },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -57,5 +58,9 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'bold',
     color: '#0D47A1',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#B3E5FC',
   },
 });

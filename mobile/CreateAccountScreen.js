@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
-export default function AuthenticationScreen({ navigation }) {
+export default function CreateAccountScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Authentication</Text>
+      <Text style={styles.title}>Create Account</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -13,13 +13,20 @@ export default function AuthenticationScreen({ navigation }) {
       />
       <TextInput
         style={styles.input}
+        placeholder="Username"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
         placeholder="Password"
         secureTextEntry={true}
       />
-      <View style={styles.buttonContainer}>
-        <Button title="Login" onPress={() => console.log('Login pressed')} />
-        <Button title="Create Account" onPress={() => navigation.navigate('CreateAccount')} />
-      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        secureTextEntry={true}
+      />
+      <Button title="Sign Up" onPress={() => console.log('Sign Up pressed')} />
     </View>
   );
 }
@@ -29,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B3E5FC', // Assuming this is the background color
+    backgroundColor: '#B3E5FC', // Assuming this is your app's background color
   },
   title: {
     fontSize: 24,
@@ -44,10 +51,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     paddingHorizontal: 10,
-  },
-  buttonContainer: {
-    width: '80%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
 });
