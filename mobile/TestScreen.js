@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   progressBarBackground: {
-    width: 100,  
+    width: 140,  
     height: 20,
     backgroundColor: '#ccc',
     borderRadius: 10,
@@ -301,5 +301,4 @@ const styles = StyleSheet.create({
     color: '#0D47A1',
     marginBottom: 5,
   },
-
 });
