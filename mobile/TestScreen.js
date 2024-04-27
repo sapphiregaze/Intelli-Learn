@@ -91,9 +91,9 @@ export default function TestScreen({ navigation }) {
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Flashcards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Scan')}>
-          <Image source={require('./assets/scan.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Scan</Text>
+        <TouchableOpacity style={styles.navBis} onPress={() => console.log('Scan')}>
+          {/* <Image source={require('./assets/scan.png')} style={styles.navIcon} /> */}
+          <Text style={styles.navText}>Scan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Notes')}>
           <Image source={require('./assets/notes.png')} style={styles.navIcon} />
@@ -193,14 +193,21 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 2, 
   },
-  navText: {
-    fontSize: 12,
-    textAlign: 'center',
-    marginTop: 10, 
+  navBis: {
+    alignItems: 'center',
+    flex: 1,
+    marginHorizontal: 2, 
+    paddingTop: 30,
   },
   navIcon: {
     width: 30, 
     height: 30, 
+  },
+  navText: {
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 5, 
+    color: '#0D47A1',
   },
   navTextDarkBlue: {
     color: '#0D47A1', 
