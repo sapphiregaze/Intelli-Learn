@@ -17,7 +17,7 @@ export default function AuthenticationScreen({ navigation }) {
         secureTextEntry={true}
       />
       <View style={styles.buttonContainer}>
-        <Button title="Login" onPress={() => console.log('Login pressed')} />
+        <Button title="Login" onPress={() => navigation.navigate('Test')} />
         <Button title="Create Account" onPress={() => navigation.navigate('CreateAccount')} />
       </View>
     </View>

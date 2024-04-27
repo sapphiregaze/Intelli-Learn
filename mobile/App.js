@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AuthenticationScreen from './AuthenticationScreen';
 import CreateAccountScreen from './CreateAccountScreen';
+import TestScreen from './TestScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +34,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Authentication" component={AuthenticationScreen} />
         <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
+        <Stack.Screen name="Test" component={TestScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
