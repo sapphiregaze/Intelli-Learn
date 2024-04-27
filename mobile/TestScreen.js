@@ -18,21 +18,26 @@ export default function TestScreen({ navigation }) {
         <Text style={styles.toDoListText}>To Do List</Text>
       </ScrollView>
 
-      {/* Barre de navigation en bas */}
+      {/* Barre de navigation en bas avec des icônes */}
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Home')}>
+          <Image source={require('./assets/home.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Flashcards')}>
+          <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Flashcards</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Scan')}>
+          <Image source={require('./assets/scan.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Scan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Notes')}>
+          <Image source={require('./assets/notes.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Notes</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Connect')}>
+          <Image source={require('./assets/connect.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Connect</Text>
         </TouchableOpacity>
       </View>
@@ -108,7 +113,13 @@ const styles = StyleSheet.create({
   navText: {
     fontSize: 12,
     textAlign: 'center',
-    marginTop: 32, 
+    marginTop: 10, 
+  },
+  navIcon: {
+    width: 30, // Ajustez la taille de l'icône selon vos besoins
+    height: 30, // Ajustez la taille de l'icône selon vos besoins
+    
+
   },
   navTextDarkBlue: {
     color: '#0D47A1', 
