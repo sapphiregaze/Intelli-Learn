@@ -28,19 +28,21 @@ export default function TestScreen({ navigation }) {
       {/* Barre de navigation en bas */}
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Home')}>
-          <Text style={styles.navText}>Home</Text>
+          <Text style={[styles.navText, styles.navTextBlue]}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Flashcards')}>
-          <Text style={styles.navText}>Flashcards</Text>
+          <Text style={[styles.navText, styles.navTextBlue]}>Flashcards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.navItem, styles.navItemCenter]} onPress={() => console.log('Scan')}>
-          <Text style={styles.navText}>Scan</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Connect')}>
-          <Text style={styles.navText}>Connect</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Scan')}>
+          <View style={[styles.navItemCenter, styles.scanButton]}>
+            <Text style={[styles.navText, styles.navTextWhite]}>Scan</Text>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Notes')}>
-          <Text style={styles.navText}>Notes</Text>
+          <Text style={[styles.navText, styles.navTextBlue]}>Notes</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Connect')}>
+          <Text style={[styles.navText, styles.navTextBlue]}>Connect</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -50,13 +52,13 @@ export default function TestScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#B3E5FC', // Fond bleu ciel
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
-    backgroundColor: '#B3E5FC',
+    backgroundColor: '#B3E5FC', // Fond bleu ciel
   },
   logo: {
     fontSize: 24,
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   profileButton: {
-    
+    // Ici, vous pouvez ajouter un style pour améliorer l'apparence du bouton profil
   },
   profileText: {
     fontSize: 18,
@@ -87,11 +89,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: '#FFFFFF', // Fond blanc
+    height: 70, // Augmentation de la hauteur de la barre
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    paddingTop: 10,
-    paddingBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -3 },
     shadowOpacity: 0.3,
@@ -103,19 +104,28 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navItemCenter: {
-    backgroundColor: '#0D47A1',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 15,
-    marginHorizontal: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.6,
     shadowRadius: 2,
     elevation: 4,
+    transform: [{ translateY: -15 }], // Fait sortir le bouton vers le haut
+  },
+  scanButton: {
+    backgroundColor: '#B3E5FC', // Fond bleu ciel
   },
   navText: {
-    color: '#0D47A1',
     fontSize: 12,
+  },
+  navTextBlue: {
+    color: '#B3E5FC', // Couleur de texte bleu ciel
+  },
+  navTextWhite: {
+    color: '#FFFFFF', // Couleur de texte blanc
   },
 });
