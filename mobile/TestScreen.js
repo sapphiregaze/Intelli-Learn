@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 2, 
     paddingTop: 40,
+    bottom: 5,
   },
   navIcon: {
     width: 30, 
