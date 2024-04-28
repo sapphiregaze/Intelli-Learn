@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"intelli-learn/backend/internal/database"
 	"net/http"
 	"os"
 	"time"
@@ -18,8 +19,13 @@ func LoginHandler(ctx *gin.Context) {
 		return
 	}
 
-	// test credentials, validate against db later :(
-	if request.Username == "user1" && request.Password == "password1" {
+	user, err := database.SelectUserByUsername(request.Username)
+	if err != nil {
+		ctx.JSON(http.StatusNotFound, gin.H{"error": "Username doesn't exists"})
+		return
+	}
+
+	if request.Username == user.Username && request.Password == user.Password {
 		expirationTime := time.Now().Add(48 * time.Hour)
 
 		claims := &Claims{

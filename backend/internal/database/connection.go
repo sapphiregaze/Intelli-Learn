@@ -2,15 +2,16 @@ package database
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 
 	"github.com/go-sql-driver/mysql"
 )
 
+var cfg mysql.Config
+
 func InitDatabase() {
-	cfg := mysql.Config{
+	cfg = mysql.Config{
 		User:                 os.Getenv("DB_USER"),
 		Passwd:               os.Getenv("DB_PASS"),
 		Net:                  "tcp",
@@ -29,5 +30,12 @@ func InitDatabase() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("[Database] Successfully Connected to MySQL Database!")
+	log.Println("Successfully Connected to MySQL Database!")
+
+	err = CreateUsersTable()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("Created users table if not exists!")
 }
