@@ -13,7 +13,7 @@ export default function TestScreen({ navigation }) {
           />
         </TouchableOpacity>
         <Text style={styles.headerText}>IntelliLearn</Text>
-        <TouchableOpacity onPress={() => console.log('Profile pressed')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image
             source={require('./assets/profile.png')}  
             style={styles.headerIcon}
