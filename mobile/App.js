@@ -8,6 +8,7 @@ import TestScreen from './TestScreen';
 import ScanScreen from './ScanScreen'; 
 import NotesScreen from './NotesScreen';
 import ConnectScreen from './ConnectScreen';
+import FlashCardsScreen from './FlashCardsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +38,8 @@ function App() {
         <Stack.Screen name="Test" component={TestScreen} />
         <Stack.Screen name="Scan" component={ScanScreen} />
         <Stack.Screen name="Notes" component={NotesScreen} />
-        <Stack.Screen name="Connect" component={ConnectScreen} /> 
+        <Stack.Screen name="Connect" component={ConnectScreen} />
+        <Stack.Screen name="FlashCards" component={FlashCardsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
