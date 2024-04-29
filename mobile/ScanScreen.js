@@ -99,9 +99,9 @@ const ScanScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgoundColor: '#000',
+    backgroundColor: '#000',
     justifyContent: 'center',
-    paddingBottom: 20,
+    paddingBottom: 8,
   },
   camera: {
     flex: 1,
