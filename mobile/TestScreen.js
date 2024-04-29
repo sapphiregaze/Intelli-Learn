@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export default function TestScreen({ navigation }) {
   return (
@@ -22,7 +22,7 @@ export default function TestScreen({ navigation }) {
       </View>
 
       {/* Main content */}
-      <ScrollView style={styles.content}>
+      <View style={styles.content}>
         {/* Container for FlashCards info and Progress Bar */}
         <View style={styles.infoAndProgressContainer}>
           <View style={styles.shortCard}>
@@ -56,36 +56,13 @@ export default function TestScreen({ navigation }) {
           </View>
         </View>
 
-        <View style={styles.transparentRectangle}></View>
-
-        <View style={styles.transparentRectangle}>
-          <View style={styles.dayCircles}>
-            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
-              <View key={index} style={styles.circle}>
-                <Text style={styles.dayNumber}>{index + 1}</Text>
-                <Text style={styles.dayName}>{day}</Text>
-              </View>
-            ))}
-          </View>
-
-          {/* Second line of days of the week */}
-          <View style={styles.dayCircles}>
-            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
-              <View key={index} style={styles.circle}>
-                <Text style={styles.dayNumber}>{index + 8}</Text>
-                <Text style={styles.dayName}>{day}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
-
-      </ScrollView>
+      </View>
 
       {/* Navigation bar at the bottom with icons */}
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Home')}>
-          <Image source={require('./assets/home.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Home</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Data')}>
+          <Image source={require('./assets/data.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, styles.navTextDarkBlue]}>Data</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => console.log('Flashcards')}>
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
@@ -130,17 +107,6 @@ const styles = StyleSheet.create({
   headerIcon: {
     width: 30,
     height: 30,
-  },
-
-  transparentRectangle: {
-    position: 'absolute',
-    bottom: -200,
-    alignSelf: 'center',
-    width: '90%',
-    height: 140, 
-    borderRadius: 17, 
-    backgroundColor: '#0D47A1', 
-    zIndex: -1, 
   },
 
   headerText: {
@@ -230,24 +196,6 @@ const styles = StyleSheet.create({
   scanImage: {
     width: 40,
     height: 40,
-  },
-
-  dayCircles: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 20,
-  },
-  circle: {
-    alignItems: 'center',
-  },
-  dayNumber: {
-    color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  dayName: {
-    color: '#FFFFFF',
-    fontSize: 12,
   },
 
   square: {
