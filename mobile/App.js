@@ -9,6 +9,7 @@ import ScanScreen from './ScanScreen';
 import NotesScreen from './NotesScreen';
 import ConnectScreen from './ConnectScreen';
 import FlashCardsScreen from './FlashCardsScreen';
+import DataScreen from './DataScreen'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,7 @@ function App() {
         <Stack.Screen name="Notes" component={NotesScreen} />
         <Stack.Screen name="Connect" component={ConnectScreen} />
         <Stack.Screen name="FlashCards" component={FlashCardsScreen} />
+        <Stack.Screen name="Data" component={DataScreen} />  
       </Stack.Navigator>
     </NavigationContainer>
   );

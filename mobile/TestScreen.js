@@ -60,10 +60,10 @@ export default function TestScreen({ navigation }) {
 
       {/* Navigation bar at the bottom with icons */}
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
-          <Image source={require('./assets/data.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Data</Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
+        <Image source={require('./assets/data.png')} style={styles.navIcon} />
+        <Text style={[styles.navText, styles.navTextDarkBlue]}>Data</Text>
+      </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('FlashCards')}>
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>FlashCards</Text>
