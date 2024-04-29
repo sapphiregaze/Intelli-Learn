@@ -83,7 +83,10 @@ export default function TestScreen({ navigation }) {
       </View>
 
       {/* Rounded square above the "Scan" button with an image */}
-      <TouchableOpacity style={styles.scanButton} onPress={() => console.log('Scan pressed')}>
+      <TouchableOpacity
+        style={styles.scanButton}
+        onPress={() => navigation.navigate('Scan')}  
+      >
         <Image source={require('./assets/scan.png')} style={styles.scanImage} />
       </TouchableOpacity>
     </View>
