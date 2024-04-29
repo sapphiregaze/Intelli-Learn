@@ -20,5 +20,5 @@ func VerifyHandler(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"message": decoded})
+	ctx.JSON(http.StatusOK, decoded)
 }

@@ -6,6 +6,7 @@ import (
 	"intelli-learn/backend/internal/database"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func RegisterHandler(ctx *gin.Context) {
@@ -33,7 +34,14 @@ func RegisterHandler(ctx *gin.Context) {
 		return
 	}
 
-	err = database.InsertUser(request.Email, request.Username, request.Password)
+	// Hash the password
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(request.Password), bcrypt.DefaultCost)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to hash password"})
+		return
+	}
+
+	err = database.InsertUser(request.Email, request.Username, string(hashedPassword))
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to register user"})
 		return

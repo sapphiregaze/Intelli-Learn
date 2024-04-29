@@ -16,7 +16,7 @@ func CreateUsersTable() error {
 			id INT AUTO_INCREMENT PRIMARY KEY,
 			email VARCHAR(255) NOT NULL UNIQUE,
 			username VARCHAR(255) NOT NULL UNIQUE,
-			password VARCHAR(255) NOT NULL
+			password_hash VARCHAR(255) NOT NULL
 		)
 	`)
 	if err != nil {
@@ -35,7 +35,7 @@ func SelectUserByUsername(username string) (User, error) {
 	}
 	defer db.Close()
 
-	err = db.QueryRow("SELECT username, email, password FROM users WHERE username = ?", username).Scan(&user.Username, &user.Email, &user.Password)
+	err = db.QueryRow("SELECT email, username, password_hash FROM users WHERE username = ?", username).Scan(&user.Email, &user.Username, &user.PasswordHash)
 	if err != nil {
 		return user, err
 	}
@@ -52,7 +52,7 @@ func SelectUserByEmail(email string) (User, error) {
 	}
 	defer db.Close()
 
-	err = db.QueryRow("SELECT username, email, password FROM users WHERE email = ?", email).Scan(&user.Username, &user.Email, &user.Password)
+	err = db.QueryRow("SELECT email, username, password_hash FROM users WHERE email = ?", email).Scan(&user.Email, &user.Username, &user.PasswordHash)
 	if err != nil {
 		return user, err
 	}
@@ -60,14 +60,14 @@ func SelectUserByEmail(email string) (User, error) {
 	return user, nil
 }
 
-func InsertUser(email, username, password string) error {
+func InsertUser(email, username, passwordHash string) error {
 	db, err := sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
 		return err
 	}
 	defer db.Close()
 
-	_, err = db.Exec("INSERT INTO users (email, username, password) VALUES (?, ?, ?)", email, username, password)
+	_, err = db.Exec("INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)", email, username, passwordHash)
 	if err != nil {
 		return err
 	}

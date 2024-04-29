@@ -1,7 +1,7 @@
 package database
 
 type User struct {
-	Username string
-	Email    string
-	Password string
+	Email        string
+	Username     string
+	PasswordHash string
 }
