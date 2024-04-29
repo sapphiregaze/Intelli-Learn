@@ -72,7 +72,7 @@ export default function TestScreen({ navigation }) {
           {/* <Image source={require('./assets/scan.png')} style={styles.navIcon} /> */}
           <Text style={styles.navText}>Scan</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => console.log('Notes')}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Notes')}>
           <Image source={require('./assets/notes.png')} style={styles.navIcon} />
           <Text style={[styles.navText, styles.navTextDarkBlue]}>Notes</Text>
         </TouchableOpacity>
