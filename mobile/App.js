@@ -7,6 +7,7 @@ import CreateAccountScreen from './CreateAccountScreen';
 import TestScreen from './TestScreen';
 import ScanScreen from './ScanScreen'; 
 import NotesScreen from './NotesScreen';
+import ConnectScreen from './ConnectScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +36,8 @@ function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Test" component={TestScreen} />
         <Stack.Screen name="Scan" component={ScanScreen} />
-        <Stack.Screen name="Notes" component={NotesScreen} />  
+        <Stack.Screen name="Notes" component={NotesScreen} />
+        <Stack.Screen name="Connect" component={ConnectScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
