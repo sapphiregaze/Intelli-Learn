@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native';
 
 export default function TestScreen({ navigation }) {
   return (
@@ -17,7 +17,21 @@ export default function TestScreen({ navigation }) {
 
       {/* Main content */}
       <View style={styles.content}>
-        <Text>What you will learn today?</Text>
+        <Text style={styles.mainHeaderText}>What will you learn today?</Text>
+        <View style={styles.searchBarContainer}>
+          <TextInput
+            placeholder="Search your course..."
+            style={styles.searchBarInput}
+          />
+        </View>
+        <View style={styles.recentlyViewedBox}>
+          <Text style={styles.sectionTitle}>Recently Viewed</Text>
+          <Text>Multivariable Calculus and Differential Equations</Text>
+          <Text style={styles.sectionSubtitle}>Target Reach</Text>
+          <View style={styles.progressBar}>
+            <View style={styles.progressBarFill}></View>
+          </View>
+        </View>
       </View>
 
       {/* Navigation bar at the bottom with icons */}
@@ -172,4 +186,48 @@ const styles = StyleSheet.create({
     color: '#0D47A1',
     marginBottom: 5,
   },
+
+  mainHeaderText: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#5F7AF9', 
+    paddingLeft: 20,
+  },
+  searchBarContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    margin: 20,
+    paddingHorizontal: 10,
+  },
+
+  searchBarInput: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingLeft: 20, 
+    fontSize: 16,
+    color: '#000',
+  },
+
+  recentlyViewedBox: {
+    backgroundColor: 'linear-gradient(145deg, #5F7AF9, #9EC2FF)',
+    borderRadius: 20,
+    padding: 15,
+    marginHorizontal: 20,
+    marginTop: 20,
+  },
+  progressBar: {
+    height: 20,
+    backgroundColor: '#DDD',
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  progressBarFill: {
+    height: '100%',
+    borderRadius: 10,
+    backgroundColor: '#5F7AF9',
+    width: '50%', // Assumer 50% de progression, ajustez selon vos données
+  },
+
 });
