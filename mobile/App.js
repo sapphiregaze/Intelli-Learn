@@ -11,6 +11,7 @@ import ConnectScreen from './ConnectScreen';
 import FlashCardsScreen from './FlashCardsScreen';
 import DataScreen from './DataScreen'; 
 import ProfileScreen from './ProfileScreen';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ function App() {
           <Image source={require('./assets/flash.png')} style={styles.flashIcon} />
           <Text style={styles.logoText}>IntelliLearn</Text>
         </View>
-        <ActivityIndicator size="large" color="#0D47A1" />
+        <ActivityIndicator size="large" color="#5F7AF9" />
       </View>
     );
   }
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B3E5FC',
+    backgroundColor: '#F3F6FA',
   },
   logoContainer: {
     flexDirection: 'row',
@@ -72,10 +73,10 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: '#0D47A1',
+    color: '#5F7AF9',
   },
   container: {
     flex: 1,
-    backgroundColor: '#B3E5FC',
+    backgroundColor: '#5F7AF9',
   },
 });

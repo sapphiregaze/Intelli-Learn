@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function TestScreen({ navigation }) {
   return (
@@ -227,7 +228,7 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 10,
     backgroundColor: '#5F7AF9',
-    width: '50%', // Assumer 50% de progression, ajustez selon vos données
+    width: '50%', 
   },
 
 });
