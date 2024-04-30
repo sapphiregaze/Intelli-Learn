@@ -28,6 +28,7 @@ func InitRoutes() routes {
 	v1 := r.router.Group("/v1/api")
 
 	r.addAuth(v1)
+	r.addUpload(v1)
 
 	return r
 }

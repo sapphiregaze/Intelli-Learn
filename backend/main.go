@@ -17,7 +17,7 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	PORT := os.Getenv("PORT")
+	database.InitDatabase()
 
 	switch strings.ToLower(os.Getenv("GIN_MODE")) {
 	case "release":
@@ -28,6 +28,7 @@ func main() {
 		gin.SetMode(gin.DebugMode)
 	}
 
-	database.InitDatabase()
-	routes.InitRoutes().Run(PORT)
+	if err := routes.InitRoutes().Run(os.Getenv("PORT")); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }
