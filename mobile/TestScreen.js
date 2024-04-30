@@ -17,6 +17,7 @@ export default function TestScreen({ navigation }) {
 
       {/* Main content */}
       <View style={styles.content}>
+        <Text>What you will learn today?</Text>
       </View>
 
       {/* Navigation bar at the bottom with icons */}
@@ -70,8 +71,8 @@ const styles = StyleSheet.create({
     width: '100%',  
   },
   headerIcon: {
-    width: 30,
-    height: 30,
+    width: 45,
+    height: 45,
   },
 
   headerText: {
@@ -118,10 +119,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
     marginTop: 5, 
-    color: '#0D47A1',
+    color: '#5F7AF9',
   },
   navTextDarkBlue: {
-    color: '#0D47A1', 
+    color: '#5F7AF9', 
   },
   scanButton: {
     position: 'absolute',
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 15,
-    backgroundColor: '#0D47A1',
+    backgroundColor: '#5F7AF9',
     marginBottom: 37,
   },  
   scanImage: {
