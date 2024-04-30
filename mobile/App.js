@@ -5,11 +5,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AuthenticationScreen from './AuthenticationScreen';
 import CreateAccountScreen from './CreateAccountScreen';
 import TestScreen from './TestScreen';
-
+import ScanScreen from './ScanScreen'; 
+import NotesScreen from './NotesScreen';
+import ConnectScreen from './ConnectScreen';
+import FlashCardsScreen from './FlashCardsScreen';
+import DataScreen from './DataScreen'; 
+import ProfileScreen from './ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,13 +37,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Authentication" component={AuthenticationScreen} />
-        <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
         <Stack.Screen name="Test" component={TestScreen} />
+        <Stack.Screen name="Scan" component={ScanScreen} />
+        <Stack.Screen name="Notes" component={NotesScreen} />
+        <Stack.Screen name="Connect" component={ConnectScreen} />
+        <Stack.Screen name="FlashCards" component={FlashCardsScreen} />
+        <Stack.Screen name="Data" component={DataScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />  
       </Stack.Navigator>
     </NavigationContainer>
   );
+
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   loadingContainer: {
