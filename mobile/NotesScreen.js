@@ -81,28 +81,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F6FA', 
     width: '100%',  
   },
-
   headerIconBell: {
     width: 25,
     height: 25,
     marginRight: 10,
   },
-
   headerIconFire: {
     width: 25,
     height: 25,
     marginRight: 240,
   },
-
   headerIconProfile: {
     width: 40,
     height: 40,
-  },  
-  headerIcon: {
-    width: 40,
-    height: 40,
   },
-
   headerText: {
     fontSize: 24, 
     color: '#0D47A1', 
@@ -112,7 +104,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
-
   navBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -132,13 +123,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 2, 
   },
-  navBis: {
-    alignItems: 'center',
-    flex: 1,
-    marginHorizontal: 2, 
-    paddingTop: 40,
-    bottom: 5,
-  },
   navIcon: {
     width: 30, 
     height: 30, 
@@ -147,25 +131,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 5, 
     color: '#5F7AF9',
-  },
-  navTextDarkBlue: {
-    color: '#5F7AF9', 
-  },
-  scanButton: {
-    position: 'absolute',
-    bottom: 0,
-    alignSelf: 'center',
-    alignItems: 'center', 
-    justifyContent: 'center',
-    width: 70,
-    height: 70,
-    borderRadius: 15,
-    backgroundColor: '#5F7AF9',
-    marginBottom: 37,
-  },  
-  scanImage: {
-    width: 70,
-    height: 70,
   },
   scanButtonProtruding: {
     alignItems: 'center',      
@@ -180,202 +145,9 @@ const styles = StyleSheet.create({
     marginLeft: 20,            
     marginRight: 20,            
   },
-  
   scanIconCentered: {
     width: 40,                  
     height: 40,                 
     resizeMode: 'contain'     
   },
-  scanIcon: {
-    width: 30, 
-    height: 30, 
-    resizeMode: 'contain'
-},
-  square: {
-    width: 160, 
-    height: 130, 
-    borderRadius: 17, 
-    backgroundColor: '#FFFFFF', 
-    justifyContent: 'center',  
-    alignItems: 'center',      
-    padding: 10,               
-  },
-
-  infoAndProgressContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginHorizontal: 30,
-    marginTop: 20,
-  },
-
-  shortCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 15,
-    padding: 10,
-    width: '50%',  
-    marginHorizontal: -10, 
-    bottom: -30,
-  },
-  cardTitle: {
-    fontSize: 14,
-    color: '#0D47A1',
-    marginBottom: 5,
-  },
-
-  mainHeaderText: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#5F7AF9', 
-    paddingLeft: 20,
-  },
-  searchBarContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    margin: 20,
-    paddingHorizontal: 10,
-  },
-
-  searchBarInput: {
-    flex: 1,
-    paddingVertical: 10,
-    paddingLeft: 20, 
-    fontSize: 16,
-    color: '#000',
-  },
-
-  gradientRectangle: {
-    width: '96%', 
-    height: 130,  
-    alignSelf: 'center', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    marginTop: 2,  
-    borderRadius: 15,  
-    overflow: 'hidden',  
-    marginLeft: 10, 
-  },
-  topText: {
-    color: '#9EC2FF',
-    fontSize: 12,
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    marginTop: -30, 
-    marginLeft: 20,
-  },
-  mainText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    marginTop: 5,  
-    marginLeft: 20,
-  },
-  buttonContainer: {
-    position: 'absolute',
-    bottom: 10,
-    right: 30,  
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  roundedButton: {
-    backgroundColor: '#000000',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-  },
-  circle: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    marginLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  arrow: {
-    color: '#000000',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  subjectButtonsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 5, 
-    paddingHorizontal: 5,
-  },
-  subjectContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 25,
-    padding: 10,
-    marginHorizontal: 5,
-  },
-  circlebis: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 10,
-    overflow: 'hidden',
-  },
-  subjectTextContainer: {
-    flex: 1,
-  },
-  subjectLabel: {
-    color: '#808080',
-    fontSize: 10,
-  },
-  subjectName: {
-    fontWeight: 'bold',
-  },
-  circleImage: {
-    width: 25,
-    height: 25,
-    resizeMode: 'contain',
-  },
-  percentageContainer: {
-    backgroundColor: '#E3F8EA',
-    paddingVertical: 1,
-    paddingHorizontal: 5,
-    borderRadius: 10,
-    position: 'absolute',
-    bottom: 10,
-    right: 15,
-  },
-  percentageText: {
-    color: '#59B879',
-    fontWeight: 'bold',
-    fontSize: 10,  
-  },
-  seeAllText: {
-    color: '#0000FF',
-  },
-  recommendedHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 5,
-    paddingHorizontal: 20,
-    marginTop: 5,  
-  },
-  recommendedTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000000',
-  },  
-  arrowImage: {
-    width: 10, 
-    height: 10, 
-    resizeMode: 'contain', 
-  },  
 });
