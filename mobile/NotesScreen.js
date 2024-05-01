@@ -43,7 +43,7 @@ export default function TestScreen() {
         style={styles.searchBar}
         placeholder="Search your notes..."
         placeholderTextColor="#A0A0A0"
-      />
+      />   
       {/* Bouton personnalisé avec icône, texte et cercle */}
       <TouchableOpacity style={styles.customButton} onPress={() => console.log('Button pressed')}>
         <Image
@@ -58,7 +58,18 @@ export default function TestScreen() {
           />
         </View>
       </TouchableOpacity>
+        {/* Conteneur pour les boutons "storage" et "file" */}
+        <View style={styles.imageButtonsContainer}>
+      {/* Bouton pour 'storage' positionné absolument */}
+      <TouchableOpacity style={[styles.imageButtonIcon, {position: 'absolute', right: 75, top: -40}]} onPress={() => console.log('Storage button pressed')}>
+        <Image source={require('./assets/storage.png')} style={styles.imageButtonIcon} />
+      </TouchableOpacity>
 
+      {/* Bouton pour 'file' positionné absolument */}
+      <TouchableOpacity style={[styles.imageButtonIcon, {position: 'absolute', right: 35, top: -38}]} onPress={() => console.log('File button pressed')}>
+        <Image source={require('./assets/file.png')} style={styles.imageButtonIcon} />
+      </TouchableOpacity>        
+        </View>
       <View style={styles.content}>
       </View>
 
@@ -93,6 +104,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F3F6FA', 
   },
+  buttonsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+    paddingHorizontal: 20,
+  },  
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',  
@@ -199,7 +217,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#5F7AF9',
     fontWeight: 'bold',
-    marginRight: 10,
   },
   buttonCircle: {
     width: 30,
@@ -218,5 +235,19 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#5F7AF9',
     fontWeight: 'bold',
+  },
+  imageButtonsContainer: {
+    flexDirection: 'row',
+  },
+  imageButtonIcon: {
+    width: 25,
+    height: 25,
+    marginLeft: 10,
+  }, 
+  buttonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    paddingHorizontal: 20,
   },
 });
