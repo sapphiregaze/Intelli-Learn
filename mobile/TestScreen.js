@@ -4,7 +4,12 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const SubjectButton = ({ circleColor, subject, percentage }) => (
   <View style={styles.subjectContainer}>
-    <View style={[styles.circlebis, { backgroundColor: circleColor }]} />
+    <View style={[styles.circlebis, { backgroundColor: circleColor, justifyContent: 'center', alignItems: 'center' }]}>
+      <Image
+        source={require('./assets/math.png')}
+        style={styles.circleImage}
+      />
+    </View>
     <View style={styles.subjectTextContainer}>
       <Text style={styles.subjectLabel}>Best subject</Text>
       <Text style={styles.subjectName}>{subject}</Text>
@@ -18,39 +23,21 @@ const SubjectButton = ({ circleColor, subject, percentage }) => (
 export default function TestScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerText}></Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image
-            source={require('./assets/profile.png')}  
-            style={styles.headerIcon}
-          />
+          <Image source={require('./assets/profile.png')} style={styles.headerIcon} />
         </TouchableOpacity>
       </View>
 
-      {/* Main content */}
       <View style={styles.content}>
         <Text style={styles.mainHeaderText}>What will you learn today?</Text>
         <View style={styles.searchBarContainer}>
-          <TextInput
-            placeholder="Search your course..."
-            style={styles.searchBarInput}
-          />
+          <TextInput placeholder="Search your course..." style={styles.searchBarInput} />
         </View>
-        {/* Gradient Rectangle */}
-        <ImageBackground
-          source={require('./assets/gradient-button.png')}
-          style={styles.gradientRectangle}
-          resizeMode="stretch"  
-        >
-          {/* Texte en haut */}
+        <ImageBackground source={require('./assets/gradient-button.png')} style={styles.gradientRectangle} resizeMode="stretch">
           <Text style={styles.topText}>RECENTLY ADDED</Text>
-          
-          {/* Texte principal en bas */}
           <Text style={styles.mainText}>Multivariable Calculus and Differential Equations</Text>
-
-          {/* Bouton arrondi avec flèche */}
           <View style={styles.buttonContainer}>
             <View style={styles.roundedButton}>
               <Text style={styles.buttonText}>Start Practicing</Text>
@@ -60,54 +47,42 @@ export default function TestScreen({ navigation }) {
             </View>
           </View>
         </ImageBackground>
+
+        <View style={styles.recommendedHeader}>
+          <Text style={styles.recommendedTitle}>Recommended for you</Text>
+          <TouchableOpacity>
+            <Text style={styles.seeAllText}>See all</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.subjectButtonsRow}>
+          <SubjectButton circleColor="#DFF2FE" subject="Math" percentage="12.8" />
+          <SubjectButton circleColor="#EAE6FF" subject="Math" percentage="12.8" />
+        </View>
       </View>
 
-      {/* Subject Buttons Row ajusté pour être plus haut */}
-      <View style={styles.subjectButtonsRow}>
-        <SubjectButton circleColor="#DFF2FE" subject="Math" percentage="12.8" />
-        <SubjectButton circleColor="#EAE6FF" subject="Math" percentage="12.8" />
-      </View>
-      
-      {/* Today's Tasks et See All ajustés pour un meilleur espacement */}
-      <View style={styles.tasksHeader}>
-        <Text style={styles.tasksTitle}>Today's tasks</Text>
-        <TouchableOpacity>
-          <Text style={styles.seeAllText}>See all</Text>
-        </TouchableOpacity>
-      </View>     
-
-      {/* Navigation bar at the bottom with icons */}
       <View style={styles.navBar}>
-      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
-        <Image source={require('./assets/data.png')} style={styles.navIcon} />
-        <Text style={[styles.navText, styles.navTextDarkBlue]}>Data</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
+          <Image source={require('./assets/data.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, {fontSize: 12}]}>Data</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('FlashCards')}>
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>FlashCards</Text>
+          <Text style={[styles.navText, {fontSize: 12}]}>FlashCards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navBis} onPress={() => console.log('Scan')}>
-          {/* <Image source={require('./assets/scan.png')} style={styles.navIcon} /> */}
-          <Text style={styles.navText}>Scan</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Scan')}>
+          <Image source={require('./assets/scan.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, {fontSize: 12}]}>Scan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Notes')}>
           <Image source={require('./assets/notes.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Notes</Text>
+          <Text style={[styles.navText, {fontSize: 12}]}>Notes</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Connect')}>
           <Image source={require('./assets/connect.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Connect</Text>
+          <Text style={[styles.navText, {fontSize: 12}]}>Connect</Text>
         </TouchableOpacity>
-
       </View>
-
-      {/* Rounded square above the "Scan" button with an image */}
-      <TouchableOpacity
-        style={styles.scanButton}
-        onPress={() => navigation.navigate('Scan')}  
-      >
-        <Image source={require('./assets/scan.png')} style={styles.scanImage} />
-      </TouchableOpacity>
     </View>
   );
 }
@@ -172,7 +147,6 @@ const styles = StyleSheet.create({
     height: 30, 
   },
   navText: {
-    fontSize: 12,
     textAlign: 'center',
     marginTop: 5, 
     color: '#5F7AF9',
@@ -309,13 +283,13 @@ const styles = StyleSheet.create({
   },
   arrow: {
     color: '#000000',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   subjectButtonsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10, 
+    marginTop: 5, // Reduced margin to bring higher
     paddingHorizontal: 5,
   },
   subjectContainer: {
@@ -332,39 +306,51 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginRight: 10,
+    overflow: 'hidden',
   },
   subjectTextContainer: {
     flex: 1,
   },
   subjectLabel: {
     color: '#808080',
+    fontSize: 10,
   },
   subjectName: {
     fontWeight: 'bold',
   },
+  circleImage: {
+    width: 25,
+    height: 25,
+    resizeMode: 'contain',
+  },
   percentageContainer: {
     backgroundColor: '#E3F8EA',
-    paddingVertical: 2,
-    paddingHorizontal: 10,
+    paddingVertical: 1,
+    paddingHorizontal: 5,
     borderRadius: 10,
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
   },
   percentageText: {
     color: '#59B879',
     fontWeight: 'bold',
+    fontSize: 10,  // Reduced font size
   },
-  tasksHeader: {
+  seeAllText: {
+    color: '#0000FF',
+  },
+  recommendedHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 5,
     paddingHorizontal: 20,
-    marginTop: 20, 
+    marginTop: 5,  // Adjusted to bring it higher
   },
-  tasksTitle: {
+  recommendedTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-  },
-  seeAllText: {
-    color: '#0000FF',
-  },
+    color: '#000000',
+  },  
 });
