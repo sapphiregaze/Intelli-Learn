@@ -71,10 +71,24 @@ export default function TestScreen() {
         </View>
       </View>
 
-      <View style={styles.TaskHeader}>
-          <Text style={styles.TasksTitle}>Today's Tasks</Text>
-          {/* Ajoutez la navigation vers la page "Notes" ici */}
+        <View style={styles.taskContainer}>
+          <TouchableOpacity style={styles.taskButton}>
+            <Image source={require('./assets/img1.png')} style={styles.taskImage} />
+            <View style={styles.taskTextContainer}>
+              <Text style={styles.taskButtonText}>Take a quiz</Text>
+              <Text style={styles.taskButtonSubtext}>5 minutes</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.taskButton}>
+            <Image source={require('./assets/img2.png')} style={styles.taskImage} />
+            <View style={styles.taskTextContainer}>
+              <Text style={styles.taskButtonText}>Practice with flashcards</Text>
+              <Text style={styles.taskButtonSubtext}>5 minutes</Text>
+            </View>
+          </TouchableOpacity>
         </View>
+
 
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Test')}>
@@ -428,4 +442,40 @@ const styles = StyleSheet.create({
     marginBottom: 125,
     marginLeft: 20,
   }, 
+  taskContainer: {
+    flexDirection: 'column', // Modifiez ici pour aligner les éléments verticalement
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    paddingHorizontal: 20,
+  },
+  taskButton: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '105%', 
+    marginBottom: 10, 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  taskImage: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
+  },
+  taskTextContainer: {
+    flexDirection: 'column',
+  },
+  taskButtonText: {
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  taskButtonSubtext: {
+    color: '#808080',
+  },
 });
