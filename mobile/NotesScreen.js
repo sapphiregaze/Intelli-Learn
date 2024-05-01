@@ -38,6 +38,22 @@ export default function TestScreen() {
         </TouchableOpacity>
       </View>
 
+      {/* Search bar */}
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search your notes..."
+        placeholderTextColor="#A0A0A0"
+      />
+
+      {/* Custom button */}
+      <View style={styles.customButton}>
+        <Image
+          source={require('./assets/squares.png')}
+          style={styles.buttonIcon}
+        />
+        <View style={styles.buttonCircle} />
+      </View>
+
       <View style={styles.content}>
       </View>
 
@@ -150,4 +166,38 @@ const styles = StyleSheet.create({
     height: 40,                 
     resizeMode: 'contain'     
   },
+  searchBar: {
+    backgroundColor: 'white',
+    marginHorizontal: 20,
+    marginTop: 20,
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    height: 40,
+    fontSize: 16,
+  },
+  customButton: {
+    flexDirection: 'row',
+    backgroundColor: '#DBEAFE',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 15, // Augmentez cette valeur pour plus de hauteur
+    borderRadius: 25,
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 190, // Ajouter une marge à droite pour réduire la largeur totale
+    width: 'auto',  // S'assurer que la largeur s'adapte au contenu, ou définir une largeur fixe
+  },
+  buttonIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+  },
+  buttonCircle: {
+    width: 30,
+    height: 30,
+    borderRadius: 40,
+    backgroundColor: '#BFDBFE',
+    marginLeft: 'auto',
+  },
+
 });
