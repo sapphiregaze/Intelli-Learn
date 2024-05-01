@@ -5,10 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const SubjectButton = ({ circleColor, subject, percentage }) => (
   <View style={styles.subjectContainer}>
     <View style={[styles.circlebis, { backgroundColor: circleColor, justifyContent: 'center', alignItems: 'center' }]}>
-      <Image
-        source={require('./assets/math.png')}
-        style={styles.circleImage}
-      />
+      <Image source={require('./assets/math.png')} style={styles.circleImage} />
     </View>
     <View style={styles.subjectTextContainer}>
       <Text style={styles.subjectLabel}>Best subject</Text>
@@ -70,9 +67,9 @@ export default function TestScreen({ navigation }) {
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
           <Text style={[styles.navText, {fontSize: 12}]}>FlashCards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Scan')}>
-          <Image source={require('./assets/scan.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, {fontSize: 12}]}>Scan</Text>
+        {/* Protruding Scan button */}
+        <TouchableOpacity style={styles.scanButtonProtruding} onPress={() => navigation.navigate('Scan')}>
+          <Image source={require('./assets/scan.png')} style={styles.scanIconCentered} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Notes')}>
           <Image source={require('./assets/notes.png')} style={styles.navIcon} />
@@ -167,10 +164,34 @@ const styles = StyleSheet.create({
     marginBottom: 37,
   },  
   scanImage: {
-    width: 40,
-    height: 40,
+    width: 70,
+    height: 70,
   },
-
+  scanButtonProtruding: {
+    alignItems: 'center',      // Centre horizontalement
+    justifyContent: 'center',   // Centre verticalement
+    width: 60,                  // Largeur du bouton
+    height: 60,                 // Hauteur du bouton
+    borderRadius: 10,           // Bords arrondis
+    backgroundColor: '#5F7AF9', // Couleur du bouton
+    elevation: 10,              // Effet de profondeur pour le bouton
+    zIndex: 1,                  // Assure que le bouton est au-dessus des autres éléments
+    marginTop: -70,             // Ajustez cela pour soulever le bouton au-dessus de la barre encore plus
+    marginLeft: 20,             // Espacement à gauche (ajuster si nécessaire)
+    marginRight: 20,            // Espacement à droite (ajuster si nécessaire)
+  },
+  
+  // Styles pour l'icône à l'intérieur du bouton
+  scanIconCentered: {
+    width: 40,                  // Largeur de l'icône
+    height: 40,                 // Hauteur de l'icône
+    resizeMode: 'contain'       // Assure que l'image ne déborde pas ou ne se déforme pas
+  },
+  scanIcon: {
+    width: 30, // Taille de l'icône
+    height: 30, // Taille de l'icône
+    resizeMode: 'contain' // Assurez-vous que l'image s'adapte bien à l'espace disponible sans déformation
+},
   square: {
     width: 160, 
     height: 130, 
