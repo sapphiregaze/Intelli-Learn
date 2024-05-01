@@ -62,6 +62,16 @@ export default function TestScreen() {
         </View>
       </View>
 
+      <View style={styles.performanceContainer}>
+        <Text style={styles.performanceTitle}>My Performance</Text>
+        {/* Première boîte de performance */}
+        <View style={styles.performanceBox}></View>
+        {/* Deuxième boîte de performance */}
+        <View style={styles.performanceBox}></View>
+        {/* Troisième boîte de performance */}
+        <View style={styles.performanceBox}></View>
+      </View>
+
       <View style={styles.content}>
       </View>
 
@@ -178,8 +188,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderRadius: 20,
     marginHorizontal: 20,
-    marginVertical: 20,
-    marginBottom: 30,
+    marginBottom: 20,
     padding: 20,
   },
   infoTitle: {
@@ -194,10 +203,10 @@ const styles = StyleSheet.create({
   },
   weekContainer: {
     marginLeft: 25,
-    marginTop: -10,
+    marginTop: -15,
   },
   weekText: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#5F7AF9',
   },
@@ -228,5 +237,22 @@ const styles = StyleSheet.create({
     marginTop: 20, 
     fontSize: 12,
     color: '#000',
+  },
+  performanceContainer: {
+    marginHorizontal: 20,
+    marginBottom: 20,
+  },
+  performanceTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 10,
+  },
+  performanceBox: {
+    backgroundColor: '#FFF',
+    borderRadius: 12,
+    height: 50,
+    elevation: 5,
+    marginBottom: 10,
   },
 });
