@@ -152,12 +152,12 @@ const styles = StyleSheet.create({
   },
   profileName: {
     marginTop: 12,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#414d63',
   },
   profileAddress: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#989898',
   },
   section: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     paddingVertical: 12,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#5F7AF9',
     textTransform: 'uppercase',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     paddingRight: 12,
     borderWidth: 1,
-    borderColor: '#E0E0E0',
+    borderColor: '#FFFFFF',
   },
   rowIcon: {
     width: 32,
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rowLabel: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: 'bold',
     color: '#414d63',
   },
