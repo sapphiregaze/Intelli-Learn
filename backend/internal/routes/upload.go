@@ -6,6 +6,8 @@ import (
 	"intelli-learn/backend/internal/utils"
 	"io"
 	"net/http"
+	"os"
+	"os/exec"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -43,14 +45,22 @@ func (r routes) addUpload(rg *gin.RouterGroup) {
 			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error extracting text from image"})
 			return
 		}
-		fmt.Printf("%s\n", (*text).Parts[0])
 
 		latex, err := utils.ConvertTextToLatex((*text).Parts[0])
 		if err != nil {
-			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error generating latex code"})
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error generating LaTeX code"})
 			return
 		}
-		fmt.Printf("%s\n", (*latex).Parts[0])
+
+		content := fmt.Sprintf("\\documentclass{article}\n\\usepackage{graphicx}\n\\begin{document}\n%s\n\\end{document}\n", (*latex).Parts[0])
+		if err := os.WriteFile("output.tex", []byte(content), 0644); err != nil {
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error saving LaTeX code"})
+		}
+
+		cmd := exec.Command("pdflatex", "output.tex")
+		if err := cmd.Run(); err != nil {
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error compiling LaTeX document"})
+		}
 
 		ctx.JSON(http.StatusOK, gin.H{"message": "File uploaded and processed successfully"})
 	})

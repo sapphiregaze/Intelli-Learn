@@ -24,3 +24,5 @@ go.work
 .env
 .env.*
 !.env.example
+
+output.*
