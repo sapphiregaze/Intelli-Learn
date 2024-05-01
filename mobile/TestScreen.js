@@ -42,8 +42,9 @@ export default function TestScreen() {
           <View style={styles.buttonContainer}>
             <View style={styles.roundedButton}>
               <Text style={styles.buttonText}>Start Practicing</Text>
+              {/* Modifiez le TouchableOpacity pour inclure l'image au lieu du texte */}
               <TouchableOpacity style={styles.circle} onPress={() => console.log('Circle Clicked!')}>
-                <Text style={styles.arrow}>&gt;</Text>
+                <Image source={require('./assets/arrow.png')} style={styles.arrowImage} />
               </TouchableOpacity>
             </View>
           </View>
@@ -173,28 +174,28 @@ const styles = StyleSheet.create({
     height: 70,
   },
   scanButtonProtruding: {
-    alignItems: 'center',      // Centre horizontalement
-    justifyContent: 'center',   // Centre verticalement
-    width: 65,                  // Largeur du bouton
-    height: 65,                 // Hauteur du bouton
-    borderRadius: 12,           // Bords arrondis
-    backgroundColor: '#5F7AF9', // Couleur du bouton
-    elevation: 10,              // Effet de profondeur pour le bouton
-    zIndex: 1,                  // Assure que le bouton est au-dessus des autres éléments
-    marginTop: -70,             // Ajustez cela pour soulever le bouton au-dessus de la barre encore plus
-    marginLeft: 20,             // Espacement à gauche (ajuster si nécessaire)
-    marginRight: 20,            // Espacement à droite (ajuster si nécessaire)
+    alignItems: 'center',      
+    justifyContent: 'center',   
+    width: 65,                  
+    height: 65,                 
+    borderRadius: 12,           
+    backgroundColor: '#5F7AF9', 
+    elevation: 10,              
+    zIndex: 1,                 
+    marginTop: -70,             
+    marginLeft: 20,            
+    marginRight: 20,            
   },
   
   scanIconCentered: {
-    width: 40,                  // Largeur de l'icône
-    height: 40,                 // Hauteur de l'icône
-    resizeMode: 'contain'       // Assure que l'image ne déborde pas ou ne se déforme pas
+    width: 40,                  
+    height: 40,                 
+    resizeMode: 'contain'     
   },
   scanIcon: {
-    width: 30, // Taille de l'icône
-    height: 30, // Taille de l'icône
-    resizeMode: 'contain' // Assurez-vous que l'image s'adapte bien à l'espace disponible sans déformation
+    width: 30, 
+    height: 30, 
+    resizeMode: 'contain'
 },
   square: {
     width: 160, 
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
   subjectButtonsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 5, // Reduced margin to bring higher
+    marginTop: 5, 
     paddingHorizontal: 5,
   },
   subjectContainer: {
@@ -360,7 +361,7 @@ const styles = StyleSheet.create({
   percentageText: {
     color: '#59B879',
     fontWeight: 'bold',
-    fontSize: 10,  // Reduced font size
+    fontSize: 10,  
   },
   seeAllText: {
     color: '#0000FF',
@@ -371,11 +372,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 5,
     paddingHorizontal: 20,
-    marginTop: 5,  // Adjusted to bring it higher
+    marginTop: 5,  
   },
   recommendedTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#000000',
+  },  
+  arrowImage: {
+    width: 10, 
+    height: 10, 
+    resizeMode: 'contain', 
   },  
 });
