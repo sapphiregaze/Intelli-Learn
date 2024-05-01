@@ -42,8 +42,8 @@ export default function TestScreen() {
           <View style={styles.buttonContainer}>
             <View style={styles.roundedButton}>
               <Text style={styles.buttonText}>Start Practicing</Text>
-              {/* Modifiez le TouchableOpacity pour inclure l'image au lieu du texte */}
-              <TouchableOpacity style={styles.circle} onPress={() => console.log('Circle Clicked!')}>
+              {/* Modifiez le TouchableOpacity pour inclure la navigation vers la page "FlashCards" */}
+              <TouchableOpacity style={styles.circle} onPress={() => navigation.navigate('FlashCards')}>
                 <Image source={require('./assets/arrow.png')} style={styles.arrowImage} />
               </TouchableOpacity>
             </View>
