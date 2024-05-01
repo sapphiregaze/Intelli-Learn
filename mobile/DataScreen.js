@@ -65,11 +65,38 @@ export default function TestScreen() {
       <View style={styles.performanceContainer}>
         <Text style={styles.performanceTitle}>My Performance</Text>
         {/* Première boîte de performance */}
-        <View style={styles.performanceBox}></View>
+        <View style={styles.performanceBox}>
+          <View style={styles.performanceItem}>
+            <View style={styles.blueDot}></View>
+            <Image source={require('./assets/item1.png')} style={styles.performanceImage} />
+            <View style={styles.performanceTextContainer}>
+              <Text style={styles.performanceLabelText}>Learning Progress</Text>
+              <Text style={styles.performanceText}>12.00 hours</Text>
+            </View>
+          </View>
+        </View>
         {/* Deuxième boîte de performance */}
-        <View style={styles.performanceBox}></View>
+        <View style={styles.performanceBox}>
+          <View style={styles.performanceItem}>
+            <View style={styles.blueDot}></View>
+            <Image source={require('./assets/item2.png')} style={styles.performanceImage} />
+            <View style={styles.performanceTextContainer}>
+              <Text style={styles.performanceLabelText}>Daily Average Study Time</Text>
+              <Text style={styles.performanceText}>3.00 hours</Text>
+            </View>
+          </View>
+        </View>
         {/* Troisième boîte de performance */}
-        <View style={styles.performanceBox}></View>
+        <View style={styles.performanceBox}>
+          <View style={styles.performanceItem}>
+            <View style={styles.blueDot}></View>
+            <Image source={require('./assets/item3.png')} style={styles.performanceImage} />
+            <View style={styles.performanceTextContainer}>
+              <Text style={styles.performanceLabelText}>Completed Educational Goals</Text>
+              <Text style={styles.performanceText}>15.00 hours</Text>
+            </View>
+          </View>
+        </View>
       </View>
 
       <View style={styles.content}>
@@ -241,7 +268,7 @@ const styles = StyleSheet.create({
   },
   performanceContainer: {
     marginHorizontal: 20,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   performanceTitle: {
     fontSize: 16,
@@ -255,5 +282,32 @@ const styles = StyleSheet.create({
     height: 50,
     elevation: 5,
     marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  performanceItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  performanceImage: {
+    width: 30,
+    height: 30,
+    borderRadius: 20,
+    marginRight: 20,
+  },
+  performanceTextContainer: {
+    flex: 1,
+  },
+  performanceLabelText: {
+    fontSize: 12,
+    color: '#000',
+    marginBottom: 5,
+  },
+  performanceText: {
+    fontSize: 13,
+    color: '#000',
+    fontWeight: 'bold',
   },
 });
