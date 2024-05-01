@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function ConnectScreen() {
   return (
     <View style={styles.container}>
-      <Text>Connect Screen</Text>
+      <Text>Home Screen</Text>
     </View>
   );
 }

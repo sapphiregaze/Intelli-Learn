@@ -72,9 +72,9 @@ export default function TestScreen() {
       </View>
 
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
-          <Image source={require('./assets/data.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, {fontSize: 12}]}>Data</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
+          <Image source={require('./assets/home.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, {fontSize: 12}]}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('FlashCards')}>
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
@@ -88,9 +88,9 @@ export default function TestScreen() {
           <Image source={require('./assets/notes.png')} style={styles.navIcon} />
           <Text style={[styles.navText, {fontSize: 12}]}>Notes</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Connect')}>
-          <Image source={require('./assets/connect.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, {fontSize: 12}]}>Connect</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
+          <Image source={require('./assets/data.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, {fontSize: 12}]}>Data</Text>
         </TouchableOpacity>
       </View>
     </View>
