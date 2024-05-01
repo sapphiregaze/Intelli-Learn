@@ -72,7 +72,7 @@ export default function TestScreen() {
       </View>
 
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Test')}>
           <Image source={require('./assets/home.png')} style={styles.navIcon} />
           <Text style={[styles.navText, {fontSize: 12}]}>Home</Text>
         </TouchableOpacity>
