@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ImageBackground } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const SubjectButton = ({ circleColor, subject, percentage }) => (
   <View style={styles.subjectContainer}>
@@ -17,7 +18,10 @@ const SubjectButton = ({ circleColor, subject, percentage }) => (
   </View>
 );
 
-export default function TestScreen({ navigation }) {
+export default function TestScreen() {
+  // Utilisez useNavigation pour obtenir l'objet de navigation
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -47,7 +51,8 @@ export default function TestScreen({ navigation }) {
 
         <View style={styles.recommendedHeader}>
           <Text style={styles.recommendedTitle}>Recommended for you</Text>
-          <TouchableOpacity>
+          {/* Ajoutez la navigation vers la page "Notes" ici */}
+          <TouchableOpacity onPress={() => navigation.navigate('Notes')}>
             <Text style={styles.seeAllText}>See all</Text>
           </TouchableOpacity>
         </View>
@@ -170,9 +175,9 @@ const styles = StyleSheet.create({
   scanButtonProtruding: {
     alignItems: 'center',      // Centre horizontalement
     justifyContent: 'center',   // Centre verticalement
-    width: 60,                  // Largeur du bouton
-    height: 60,                 // Hauteur du bouton
-    borderRadius: 10,           // Bords arrondis
+    width: 65,                  // Largeur du bouton
+    height: 65,                 // Hauteur du bouton
+    borderRadius: 12,           // Bords arrondis
     backgroundColor: '#5F7AF9', // Couleur du bouton
     elevation: 10,              // Effet de profondeur pour le bouton
     zIndex: 1,                  // Assure que le bouton est au-dessus des autres éléments
@@ -181,7 +186,6 @@ const styles = StyleSheet.create({
     marginRight: 20,            // Espacement à droite (ajuster si nécessaire)
   },
   
-  // Styles pour l'icône à l'intérieur du bouton
   scanIconCentered: {
     width: 40,                  // Largeur de l'icône
     height: 40,                 // Hauteur de l'icône
