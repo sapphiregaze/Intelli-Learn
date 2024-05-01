@@ -38,21 +38,26 @@ export default function TestScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Search bar */}
+      {/* Barre de recherche */}
       <TextInput
         style={styles.searchBar}
         placeholder="Search your notes..."
         placeholderTextColor="#A0A0A0"
       />
-
-      {/* Custom button */}
-      <View style={styles.customButton}>
+      {/* Bouton personnalisé avec icône, texte et cercle */}
+      <TouchableOpacity style={styles.customButton} onPress={() => console.log('Button pressed')}>
         <Image
           source={require('./assets/squares.png')}
           style={styles.buttonIcon}
         />
-        <View style={styles.buttonCircle} />
-      </View>
+        <Text style={styles.buttonText}>All</Text>
+        <View style={styles.buttonCircle}>
+          <Image
+            source={require('./assets/arrowdown.png')}
+            style={styles.circleImage}
+          />
+        </View>
+      </TouchableOpacity>
 
       <View style={styles.content}>
       </View>
@@ -180,24 +185,38 @@ const styles = StyleSheet.create({
     backgroundColor: '#DBEAFE',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 15, // Augmentez cette valeur pour plus de hauteur
-    borderRadius: 25,
-    marginTop: 20,
+    paddingVertical: 10,
+    borderRadius: 30,
+    marginTop: 10,
     marginLeft: 20,
-    marginRight: 190, // Ajouter une marge à droite pour réduire la largeur totale
-    width: 'auto',  // S'assurer que la largeur s'adapte au contenu, ou définir une largeur fixe
+    width: 125,  
   },
   buttonIcon: {
     width: 20,
     height: 20,
     marginRight: 10,
   },
+  buttonText: {
+    color: '#5F7AF9',
+    fontWeight: 'bold',
+    marginRight: 10,
+  },
   buttonCircle: {
     width: 30,
     height: 30,
-    borderRadius: 40,
+    borderRadius: 15,
     backgroundColor: '#BFDBFE',
-    marginLeft: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 20,  
   },
-
+  circleImage: {
+    width: 15,
+    height: 15,
+    resizeMode: 'contain',
+  },
+  buttonText: {
+    color: '#5F7AF9',
+    fontWeight: 'bold',
+  },
 });
