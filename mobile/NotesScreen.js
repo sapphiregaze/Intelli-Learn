@@ -3,6 +3,20 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ImageBackgr
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
+const images = {
+  math: require('./assets/math.png'),
+  bookbis: require('./assets/bookbis.png')
+};
+
+const subjects = [
+  { name: "Math", notes: 25, color: "#DBEAFE", image: 'math' },
+  { name: "Science", notes: 25, color: "#DBEAFE", image: 'math' },
+  { name: "Socials", notes: 25, color: "#DBEAFE", image: 'math' },
+  { name: "English", notes: 17, color: "#C3B5F1", image: 'bookbis' },
+  { name: "Physics", notes: 17, color: "#C3B5F1", image: 'bookbis' },
+  { name: "French", notes: 17, color: "#C3B5F1", image: 'bookbis' }
+];
+
 const SubjectButton = ({ circleColor, subject, percentage }) => (
   <View style={styles.subjectContainer}>
     <View style={[styles.circlebis, { backgroundColor: circleColor, justifyContent: 'center', alignItems: 'center' }]}>
@@ -24,11 +38,11 @@ export default function TestScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        {/* Bouton "bell" */}
+        {/* Button "bell" */}
         <TouchableOpacity onPress={() => console.log('Bell button pressed')}>
           <Image source={require('./assets/bell.png')} style={styles.headerIconBell} />
         </TouchableOpacity>
-        {/* Bouton "fire" */}
+        {/* Button "fire" */}
         <TouchableOpacity onPress={() => console.log('Fire button pressed')}>
           <Image source={require('./assets/fire.png')} style={styles.headerIconFire} />
         </TouchableOpacity>
@@ -38,13 +52,13 @@ export default function TestScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Barre de recherche */}
+      {/* Search Bar */}
       <TextInput
         style={styles.searchBar}
         placeholder="Search your notes..."
         placeholderTextColor="#A0A0A0"
       />   
-      {/* Bouton personnalisé avec icône, texte et cercle */}
+      {/* Custom button with icon, text and circle */}
       <TouchableOpacity style={styles.customButton} onPress={() => console.log('Button pressed')}>
         <Image
           source={require('./assets/squares.png')}
@@ -58,14 +72,30 @@ export default function TestScreen() {
           />
         </View>
       </TouchableOpacity>
-        {/* Conteneur pour les boutons "storage" et "file" */}
+        {/* Buttons "storage" et "file" */}
         <View style={styles.imageButtonsContainer}>
-      {/* Bouton pour 'storage' positionné absolument */}
       <TouchableOpacity style={[styles.imageButtonIcon, {position: 'absolute', right: 75, top: -40}]} onPress={() => console.log('Storage button pressed')}>
         <Image source={require('./assets/storage.png')} style={styles.imageButtonIcon} />
       </TouchableOpacity>
 
-      {/* Bouton pour 'file' positionné absolument */}
+      <View style={styles.foldersTextContainer}>
+          <Text style={styles.foldersText}>Folders</Text>
+        </View>
+
+        <View style={styles.subjectsContainer}>
+          {subjects.map((subject, index) => (
+            <View key={index} style={[styles.subjectBox, {backgroundColor: '#FFF'}, index % 2 === 0 ? styles.leftColumn : styles.rightColumn]}>
+              <View style={[styles.circle, {backgroundColor: subject.color}]}>
+                <Image source={images[subject.image]} style={styles.circleImage} />
+              </View>
+              <View>
+                <Text style={styles.subjectName}>{subject.name}</Text>
+                <Text style={styles.notesText}>{`${subject.notes} notes`}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
+
       <TouchableOpacity style={[styles.imageButtonIcon, {position: 'absolute', right: 35, top: -38}]} onPress={() => console.log('File button pressed')}>
         <Image source={require('./assets/file.png')} style={styles.imageButtonIcon} />
       </TouchableOpacity>        
@@ -249,5 +279,57 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     paddingHorizontal: 20,
+  },
+  foldersTextContainer: {
+    marginLeft: 20,
+    marginTop: 10,
+  },
+  foldersText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  subjectsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center', 
+    padding: 20,
+  },
+  subjectBox: {
+    width: '45%', 
+    padding: 10,
+    marginBottom: 20,
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 5, 
+  },
+  circle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  circleImage: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  },
+  subjectName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  notesText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  leftColumn: {
+    marginRight: 2,
+  },
+  rightColumn: {
+    marginLeft: 2, 
   },
 });
