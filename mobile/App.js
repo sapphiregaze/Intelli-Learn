@@ -7,7 +7,6 @@ import CreateAccountScreen from './CreateAccountScreen';
 import TestScreen from './TestScreen';
 import ScanScreen from './ScanScreen'; 
 import NotesScreen from './NotesScreen';
-import ConnectScreen from './ConnectScreen';
 import FlashCardsScreen from './FlashCardsScreen';
 import DataScreen from './DataScreen'; 
 import ProfileScreen from './ProfileScreen';
@@ -37,18 +36,16 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false, animation: 'none' }}>
         <Stack.Screen name="Test" component={TestScreen} />
         <Stack.Screen name="Scan" component={ScanScreen} />
         <Stack.Screen name="Notes" component={NotesScreen} />
-        <Stack.Screen name="Connect" component={ConnectScreen} />
         <Stack.Screen name="FlashCards" component={FlashCardsScreen} />
         <Stack.Screen name="Data" component={DataScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />  
+        <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-
 }
 
 export default App;

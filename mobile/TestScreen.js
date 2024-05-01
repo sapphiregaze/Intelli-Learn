@@ -1,10 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ImageBackground } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const SubjectButton = ({ circleColor, subject, percentage }) => (
   <View style={styles.subjectContainer}>
-    <View style={[styles.circlebis, { backgroundColor: circleColor }]} />
+    <View style={[styles.circlebis, { backgroundColor: circleColor, justifyContent: 'center', alignItems: 'center' }]}>
+      <Image source={require('./assets/math.png')} style={styles.circleImage} />
+    </View>
     <View style={styles.subjectTextContainer}>
       <Text style={styles.subjectLabel}>Best subject</Text>
       <Text style={styles.subjectName}>{subject}</Text>
@@ -15,99 +18,102 @@ const SubjectButton = ({ circleColor, subject, percentage }) => (
   </View>
 );
 
-export default function TestScreen({ navigation }) {
+export default function TestScreen() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
+        {/* Bouton "bell" */}
+        <TouchableOpacity onPress={() => console.log('Bell button pressed')}>
+          <Image source={require('./assets/bell.png')} style={styles.headerIconBell} />
+        </TouchableOpacity>
+        {/* Bouton "fire" */}
+        <TouchableOpacity onPress={() => console.log('Fire button pressed')}>
+          <Image source={require('./assets/fire.png')} style={styles.headerIconFire} />
+        </TouchableOpacity>
         <Text style={styles.headerText}></Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image
-            source={require('./assets/profile.png')}  
-            style={styles.headerIcon}
-          />
+          <Image source={require('./assets/profile.png')} style={styles.headerIconProfile} />
         </TouchableOpacity>
       </View>
 
-      {/* Main content */}
       <View style={styles.content}>
         <Text style={styles.mainHeaderText}>What will you learn today?</Text>
         <View style={styles.searchBarContainer}>
-          <TextInput
-            placeholder="Search your course..."
-            style={styles.searchBarInput}
-          />
+          <TextInput placeholder="Search your course..." style={styles.searchBarInput} />
         </View>
-        {/* Gradient Rectangle */}
-        <ImageBackground
-          source={require('./assets/gradient-button.png')}
-          style={styles.gradientRectangle}
-          resizeMode="stretch"  
-        >
-          {/* Texte en haut */}
+        <ImageBackground source={require('./assets/gradient-button.png')} style={styles.gradientRectangle} resizeMode="stretch">
           <Text style={styles.topText}>RECENTLY ADDED</Text>
-          
-          {/* Texte principal en bas */}
           <Text style={styles.mainText}>Multivariable Calculus and Differential Equations</Text>
-
-          {/* Bouton arrondi avec flèche */}
           <View style={styles.buttonContainer}>
             <View style={styles.roundedButton}>
               <Text style={styles.buttonText}>Start Practicing</Text>
-              <TouchableOpacity style={styles.circle} onPress={() => console.log('Circle Clicked!')}>
-                <Text style={styles.arrow}>&gt;</Text>
+              {/* Modifiez le TouchableOpacity pour inclure la navigation vers la page "FlashCards" */}
+              <TouchableOpacity style={styles.circle} onPress={() => navigation.navigate('FlashCards')}>
+                <Image source={require('./assets/arrow.png')} style={styles.arrowImage} />
               </TouchableOpacity>
             </View>
           </View>
         </ImageBackground>
+
+        <View style={styles.recommendedHeader}>
+          <Text style={styles.recommendedTitle}>Recommended for you</Text>
+          {/* Ajoutez la navigation vers la page "Notes" ici */}
+          <TouchableOpacity onPress={() => navigation.navigate('Notes')}>
+            <Text style={styles.seeAllText}>See all</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.subjectButtonsRow}>
+          <SubjectButton circleColor="#DFF2FE" subject="Math" percentage="12.8" />
+          <SubjectButton circleColor="#EAE6FF" subject="Math" percentage="12.8" />
+        </View>
       </View>
 
-      {/* Subject Buttons Row ajusté pour être plus haut */}
-      <View style={styles.subjectButtonsRow}>
-        <SubjectButton circleColor="#DFF2FE" subject="Math" percentage="12.8" />
-        <SubjectButton circleColor="#EAE6FF" subject="Math" percentage="12.8" />
-      </View>
-      
-      {/* Today's Tasks et See All ajustés pour un meilleur espacement */}
-      <View style={styles.tasksHeader}>
-        <Text style={styles.tasksTitle}>Today's tasks</Text>
-        <TouchableOpacity>
-          <Text style={styles.seeAllText}>See all</Text>
-        </TouchableOpacity>
-      </View>     
+        <View style={styles.taskContainer}>
+          <TouchableOpacity style={styles.taskButton}>
+            <Image source={require('./assets/img1.png')} style={styles.taskImage} />
+            <View style={styles.taskTextContainer}>
+              <Text style={styles.taskButtonText}>Take a quiz</Text>
+              <Text style={styles.taskButtonSubtext}>5 minutes</Text>
+            </View>
+            <Image source={require('./assets/arrowright.png')} style={styles.arrowRightImage} />
+          </TouchableOpacity>
 
-      {/* Navigation bar at the bottom with icons */}
+          <TouchableOpacity style={styles.taskButton}>
+            <Image source={require('./assets/img2.png')} style={styles.taskImage} />
+            <View style={styles.taskTextContainer}>
+              <Text style={styles.taskButtonText}>Practice with flashcards</Text>
+              <Text style={styles.taskButtonSubtext}>5 minutes</Text>
+            </View>
+            <Image source={require('./assets/arrowright.png')} style={styles.arrowRightImage} />
+          </TouchableOpacity>
+        </View>
+
+
       <View style={styles.navBar}>
-      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
-        <Image source={require('./assets/data.png')} style={styles.navIcon} />
-        <Text style={[styles.navText, styles.navTextDarkBlue]}>Data</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Test')}>
+          <Image source={require('./assets/home.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, {fontSize: 12}]}>Home</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('FlashCards')}>
           <Image source={require('./assets/flashcards.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>FlashCards</Text>
+          <Text style={[styles.navText, {fontSize: 12}]}>FlashCards</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navBis} onPress={() => console.log('Scan')}>
-          {/* <Image source={require('./assets/scan.png')} style={styles.navIcon} /> */}
-          <Text style={styles.navText}>Scan</Text>
+        {/* Protruding Scan button */}
+        <TouchableOpacity style={styles.scanButtonProtruding} onPress={() => navigation.navigate('Scan')}>
+          <Image source={require('./assets/scan.png')} style={styles.scanIconCentered} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Notes')}>
           <Image source={require('./assets/notes.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Notes</Text>
+          <Text style={[styles.navText, {fontSize: 12}]}>Notes</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Connect')}>
-          <Image source={require('./assets/connect.png')} style={styles.navIcon} />
-          <Text style={[styles.navText, styles.navTextDarkBlue]}>Connect</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Data')}>
+          <Image source={require('./assets/data.png')} style={styles.navIcon} />
+          <Text style={[styles.navText, {fontSize: 12}]}>Data</Text>
         </TouchableOpacity>
-
       </View>
-
-      {/* Rounded square above the "Scan" button with an image */}
-      <TouchableOpacity
-        style={styles.scanButton}
-        onPress={() => navigation.navigate('Scan')}  
-      >
-        <Image source={require('./assets/scan.png')} style={styles.scanImage} />
-      </TouchableOpacity>
     </View>
   );
 }
@@ -126,6 +132,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F6FA', 
     width: '100%',  
   },
+
+  headerIconBell: {
+    width: 25,
+    height: 25,
+    marginRight: 10,
+  },
+
+  headerIconFire: {
+    width: 25,
+    height: 25,
+    marginRight: 240,
+  },
+
+  headerIconProfile: {
+    width: 40,
+    height: 40,
+  },  
   headerIcon: {
     width: 40,
     height: 40,
@@ -172,7 +195,6 @@ const styles = StyleSheet.create({
     height: 30, 
   },
   navText: {
-    fontSize: 12,
     textAlign: 'center',
     marginTop: 5, 
     color: '#5F7AF9',
@@ -193,10 +215,33 @@ const styles = StyleSheet.create({
     marginBottom: 37,
   },  
   scanImage: {
-    width: 40,
-    height: 40,
+    width: 70,
+    height: 70,
   },
-
+  scanButtonProtruding: {
+    alignItems: 'center',      
+    justifyContent: 'center',   
+    width: 65,                  
+    height: 65,                 
+    borderRadius: 12,           
+    backgroundColor: '#5F7AF9', 
+    elevation: 10,              
+    zIndex: 1,                 
+    marginTop: -70,             
+    marginLeft: 20,            
+    marginRight: 20,            
+  },
+  
+  scanIconCentered: {
+    width: 40,                  
+    height: 40,                 
+    resizeMode: 'contain'     
+  },
+  scanIcon: {
+    width: 30, 
+    height: 30, 
+    resizeMode: 'contain'
+},
   square: {
     width: 160, 
     height: 130, 
@@ -309,13 +354,13 @@ const styles = StyleSheet.create({
   },
   arrow: {
     color: '#000000',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   subjectButtonsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10, 
+    marginTop: 5, 
     paddingHorizontal: 5,
   },
   subjectContainer: {
@@ -332,39 +377,113 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginRight: 10,
+    overflow: 'hidden',
   },
   subjectTextContainer: {
     flex: 1,
   },
   subjectLabel: {
     color: '#808080',
+    fontSize: 10,
   },
   subjectName: {
     fontWeight: 'bold',
   },
+  circleImage: {
+    width: 25,
+    height: 25,
+    resizeMode: 'contain',
+  },
   percentageContainer: {
     backgroundColor: '#E3F8EA',
-    paddingVertical: 2,
-    paddingHorizontal: 10,
+    paddingVertical: 1,
+    paddingHorizontal: 5,
     borderRadius: 10,
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
   },
   percentageText: {
     color: '#59B879',
     fontWeight: 'bold',
+    fontSize: 10,  
   },
-  tasksHeader: {
+  seeAllText: {
+    color: '#0000FF',
+  },
+  recommendedHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 5,
     paddingHorizontal: 20,
-    marginTop: 20, 
+    marginTop: 5,  
   },
-  tasksTitle: {
+  recommendedTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#000000',
+  },  
+  arrowImage: {
+    width: 10, 
+    height: 10, 
+    resizeMode: 'contain', 
+  },  
+  TasksHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    marginTop: 50,  
   },
-  seeAllText: {
-    color: '#0000FF',
+  TasksTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000000',
+    marginBottom: 125,
+    marginLeft: 20,
+  }, 
+  taskContainer: {
+    flexDirection: 'column', // Modifiez ici pour aligner les éléments verticalement
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    paddingHorizontal: 20,
   },
+  taskButton: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '105%', 
+    marginBottom: 10, 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  taskImage: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
+  },
+  taskTextContainer: {
+    flexDirection: 'column',
+  },
+  taskButtonText: {
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  taskButtonSubtext: {
+    color: '#808080',
+  },
+  arrowRightImage: {
+    width: 30, // Définissez la largeur souhaitée
+    height: 30, // Définissez la hauteur souhaitée
+    marginLeft: 'auto', // Pousse l'image vers la droite
+    resizeMode: 'contain' // Assurez que l'image s'adapte sans se déformer
+  },  
 });
