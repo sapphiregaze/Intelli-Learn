@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderRadius: 20,
     marginHorizontal: 20,
-    marginBottom: 20,
+    marginBottom: 10,
     padding: 20,
   },
   infoTitle: {
@@ -203,12 +203,13 @@ const styles = StyleSheet.create({
   },
   weekContainer: {
     marginLeft: 25,
-    marginTop: -15,
+    marginTop: -10,
   },
   weekText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#5F7AF9',
+    marginBottom: 9,
   },
   barContainer: {
     flexDirection: 'row',
