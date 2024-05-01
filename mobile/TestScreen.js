@@ -78,6 +78,7 @@ export default function TestScreen() {
               <Text style={styles.taskButtonText}>Take a quiz</Text>
               <Text style={styles.taskButtonSubtext}>5 minutes</Text>
             </View>
+            <Image source={require('./assets/arrowright.png')} style={styles.arrowRightImage} />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.taskButton}>
@@ -86,6 +87,7 @@ export default function TestScreen() {
               <Text style={styles.taskButtonText}>Practice with flashcards</Text>
               <Text style={styles.taskButtonSubtext}>5 minutes</Text>
             </View>
+            <Image source={require('./assets/arrowright.png')} style={styles.arrowRightImage} />
           </TouchableOpacity>
         </View>
 
@@ -478,4 +480,10 @@ const styles = StyleSheet.create({
   taskButtonSubtext: {
     color: '#808080',
   },
+  arrowRightImage: {
+    width: 30, // Définissez la largeur souhaitée
+    height: 30, // Définissez la hauteur souhaitée
+    marginLeft: 'auto', // Pousse l'image vers la droite
+    resizeMode: 'contain' // Assurez que l'image s'adapte sans se déformer
+  },  
 });
