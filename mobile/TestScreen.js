@@ -71,6 +71,11 @@ export default function TestScreen() {
         </View>
       </View>
 
+      <View style={styles.TaskHeader}>
+          <Text style={styles.TasksTitle}>Today's Tasks</Text>
+          {/* Ajoutez la navigation vers la page "Notes" ici */}
+        </View>
+
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Test')}>
           <Image source={require('./assets/home.png')} style={styles.navIcon} />
@@ -408,4 +413,19 @@ const styles = StyleSheet.create({
     height: 10, 
     resizeMode: 'contain', 
   },  
+  TasksHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    marginTop: 50,  
+  },
+  TasksTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000000',
+    marginBottom: 125,
+    marginLeft: 20,
+  }, 
 });
