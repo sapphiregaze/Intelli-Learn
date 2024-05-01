@@ -33,16 +33,25 @@ func (r routes) addUpload(rg *gin.RouterGroup) {
 
 		buf := bytes.NewBuffer(nil)
 		if _, err := io.Copy(buf, file); err != nil {
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error copying file to buffer"})
 			return
 		}
 
 		format := strings.Split(http.DetectContentType(buf.Bytes()), "/")[1]
-		resp, err := utils.ExtractTextFromImage(buf.Bytes(), format)
+		text, err := utils.ExtractTextFromImage(buf.Bytes(), format)
 		if err != nil {
-			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error extracting test from image"})
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error extracting text from image"})
 			return
 		}
+		fmt.Printf("%s\n", (*text).Parts[0])
 
-		ctx.JSON(http.StatusOK, gin.H{"message": (*resp).Parts[0]})
+		latex, err := utils.ConvertTextToLatex((*text).Parts[0])
+		if err != nil {
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Error generating latex code"})
+			return
+		}
+		fmt.Printf("%s\n", (*latex).Parts[0])
+
+		ctx.JSON(http.StatusOK, gin.H{"message": "File uploaded and processed successfully"})
 	})
 }
