@@ -1,22 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ImageBackground } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-const SubjectButton = ({ circleColor, subject, percentage }) => (
-  <View style={styles.subjectContainer}>
-    <View style={[styles.circlebis, { backgroundColor: circleColor, justifyContent: 'center', alignItems: 'center' }]}>
-      <Image source={require('./assets/math.png')} style={styles.circleImage} />
-    </View>
-    <View style={styles.subjectTextContainer}>
-      <Text style={styles.subjectLabel}>Best subject</Text>
-      <Text style={styles.subjectName}>{subject}</Text>
-    </View>
-    <View style={styles.percentageContainer}>
-      <Text style={styles.percentageText}>{percentage}%</Text>
-    </View>
-  </View>
-);
 
 export default function TestScreen() {
   const navigation = useNavigation();
@@ -64,11 +48,9 @@ export default function TestScreen() {
 
       <View style={styles.performanceContainer}>
         <Text style={styles.performanceTitle}>My Performance</Text>
-        {/* Première boîte de performance */}
         <View style={styles.performanceBox}>
           <View style={styles.performanceItem}>
             <View style={styles.blueDot}></View>
-            <Image source={require('./assets/item1.png')} style={styles.performanceImage} />
             <View style={styles.performanceTextContainer}>
               <Text style={styles.performanceLabelText}>Learning Progress</Text>
               <Text style={styles.performanceText}>12.00 hours</Text>
@@ -79,7 +61,6 @@ export default function TestScreen() {
         <View style={styles.performanceBox}>
           <View style={styles.performanceItem}>
             <View style={styles.blueDot}></View>
-            <Image source={require('./assets/item2.png')} style={styles.performanceImage} />
             <View style={styles.performanceTextContainer}>
               <Text style={styles.performanceLabelText}>Daily Average Study Time</Text>
               <Text style={styles.performanceText}>3.00 hours</Text>
@@ -90,7 +71,6 @@ export default function TestScreen() {
         <View style={styles.performanceBox}>
           <View style={styles.performanceItem}>
             <View style={styles.blueDot}></View>
-            <Image source={require('./assets/item3.png')} style={styles.performanceImage} />
             <View style={styles.performanceTextContainer}>
               <Text style={styles.performanceLabelText}>Completed Educational Goals</Text>
               <Text style={styles.performanceText}>15.00 hours</Text>
@@ -291,9 +271,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
+  blueDot: {
+    backgroundColor: '#DBEAFE',
+    width: 40,
+    height: 40,
+    borderRadius: 30,
+    marginRight: 15,
+  },  
   performanceImage: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
     borderRadius: 20,
     marginRight: 20,
   },
