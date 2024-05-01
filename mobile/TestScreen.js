@@ -19,15 +19,22 @@ const SubjectButton = ({ circleColor, subject, percentage }) => (
 );
 
 export default function TestScreen() {
-  // Utilisez useNavigation pour obtenir l'objet de navigation
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        {/* Bouton "bell" */}
+        <TouchableOpacity onPress={() => console.log('Bell button pressed')}>
+          <Image source={require('./assets/bell.png')} style={styles.headerIconBell} />
+        </TouchableOpacity>
+        {/* Bouton "fire" */}
+        <TouchableOpacity onPress={() => console.log('Fire button pressed')}>
+          <Image source={require('./assets/fire.png')} style={styles.headerIconFire} />
+        </TouchableOpacity>
         <Text style={styles.headerText}></Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image source={require('./assets/profile.png')} style={styles.headerIcon} />
+          <Image source={require('./assets/profile.png')} style={styles.headerIconProfile} />
         </TouchableOpacity>
       </View>
 
@@ -104,6 +111,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F6FA', 
     width: '100%',  
   },
+
+  headerIconBell: {
+    width: 25,
+    height: 25,
+    marginRight: 10,
+  },
+
+  headerIconFire: {
+    width: 25,
+    height: 25,
+    marginRight: 240,
+  },
+
+  headerIconProfile: {
+    width: 40,
+    height: 40,
+  },  
   headerIcon: {
     width: 40,
     height: 40,
