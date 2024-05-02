@@ -292,13 +292,13 @@ const styles = StyleSheet.create({
   subjectsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center', 
+    justifyContent: 'left', 
     padding: 20,
   },
   subjectBox: {
     width: '45%', 
     padding: 10,
-    marginBottom: 20,
+    marginBottom: 15,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',

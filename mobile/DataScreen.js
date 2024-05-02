@@ -48,29 +48,30 @@ export default function TestScreen() {
 
       <View style={styles.performanceContainer}>
         <Text style={styles.performanceTitle}>My Performance</Text>
+        {/* Première boîte de performance - Learning Progress */}
         <View style={styles.performanceBox}>
           <View style={styles.performanceItem}>
-            <View style={styles.blueDot}></View>
+            <Image source={require('./assets/progress.png')} style={styles.blueDot} />
             <View style={styles.performanceTextContainer}>
               <Text style={styles.performanceLabelText}>Learning Progress</Text>
               <Text style={styles.performanceText}>12.00 hours</Text>
             </View>
           </View>
         </View>
-        {/* Deuxième boîte de performance */}
+        {/* Deuxième boîte de performance - Daily Average Study Time */}
         <View style={styles.performanceBox}>
           <View style={styles.performanceItem}>
-            <View style={styles.blueDot}></View>
+            <Image source={require('./assets/study.png')} style={styles.blueDot} />
             <View style={styles.performanceTextContainer}>
               <Text style={styles.performanceLabelText}>Daily Average Study Time</Text>
               <Text style={styles.performanceText}>3.00 hours</Text>
             </View>
           </View>
         </View>
-        {/* Troisième boîte de performance */}
+        {/* Troisième boîte de performance - Completed Educational Goals */}
         <View style={styles.performanceBox}>
           <View style={styles.performanceItem}>
-            <View style={styles.blueDot}></View>
+            <Image source={require('./assets/completed.png')} style={styles.blueDot} />
             <View style={styles.performanceTextContainer}>
               <Text style={styles.performanceLabelText}>Completed Educational Goals</Text>
               <Text style={styles.performanceText}>15.00 hours</Text>
@@ -272,18 +273,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   blueDot: {
-    backgroundColor: '#DBEAFE',
-    width: 40,
+    width: 40,  
     height: 40,
-    borderRadius: 30,
+    borderRadius: 20, 
     marginRight: 15,
+    backgroundColor: '#DBEAFE', 
+    justifyContent: 'center',
+    alignItems: 'center',
   },  
-  performanceImage: {
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-    marginRight: 20,
-  },
   performanceTextContainer: {
     flex: 1,
   },
@@ -297,4 +294,8 @@ const styles = StyleSheet.create({
     color: '#000',
     fontWeight: 'bold',
   },
+  performanceImage: {
+    flex: 1,  
+    resizeMode: 'contain',
+  }, 
 });

@@ -36,6 +36,7 @@ export default function TestScreen() {
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image source={require('./assets/profile.png')} style={styles.headerIconProfile} />
         </TouchableOpacity>
+
         {/* White Rectangle */}
         <View style={styles.headerRectangle}>
           <Text style={styles.headerRectangleText}>Create your best favorite Flashcards Playlist all the time !</Text>
@@ -267,5 +268,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#597DFF', 
-  },
+  }, 
 });
