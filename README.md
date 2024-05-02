@@ -10,6 +10,18 @@ IntelliLearn is a project submitted to the Google AI Hackathon, aimed at buildin
 
 The objective of IntelliLearn is to provide students with a comprehensive learning platform that simplifies note-taking, facilitates understanding of complex mathematical and physical concepts, and helps organize their study routine effectively.
 
+## Features 
+
+* AI Model Personalized with OCR, Adaptive Handwriting Recognition
+
+* Data Analysis for track your learning progression
+
+* Intelligent Flashcard Generator based on pdf LaTeX document
+
+* Summarize and listen your notes instantly
+
+* Collaboration Mode and Easy Export and Sharing
+
 ## Tasks
 
 - [ ] Develop functionality to scan handwritten notes and convert them into LaTeX format.
