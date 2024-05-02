@@ -64,4 +64,4 @@ Looking ahead, we plan to expand IntelliLearn's capabilities by incorporating mu
 
 ## Contributors
 
-* Jas Huang, Patti Tani, Inès Gbadamassi
+<span style="color:blue">Jas Huang, Patti Tani, Inès Gbadamassi</span>
