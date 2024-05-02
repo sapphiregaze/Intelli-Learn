@@ -36,15 +36,16 @@ export default function TestScreen() {
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image source={require('./assets/profile.png')} style={styles.headerIconProfile} />
         </TouchableOpacity>
-        {/* Rectangle blanc avec texte et image */}
+        {/* White Rectangle */}
         <View style={styles.headerRectangle}>
           <Text style={styles.headerRectangleText}>Create your best favorite Flashcards Playist All the time !</Text>
           <Image
             source={require('./assets/music.jpg')}
             style={styles.musicImage}
-            resizeMode="contain" // Assure que toute l'image est visible et ajustée selon les proportions
+            resizeMode="contain" 
           />
         </View>
+        <View style={styles.purpleRectangle}></View>
       </View>
 
       <View style={styles.content}>
@@ -167,26 +168,38 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 170,
     borderRadius: 18,
-    justifyContent: 'flex-start', // Alignement vertical du contenu en haut
-    alignItems: 'center',         // Alignement horizontal du contenu
+    justifyContent: 'flex-start', 
+    alignItems: 'center',     
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 12,
-    paddingTop: 18, // Ajustez cette valeur pour déterminer l'espace au-dessus du texte
+    paddingTop: 18, 
     paddingHorizontal: 20,
   },
   headerRectangleText: {
     color: '#C46CFF',
-    fontSize: 18, // Taille de la police
+    fontSize: 18, 
     fontWeight: 'bold',
-    textAlign: 'left', // Assure que le texte est bien centré
+    textAlign: 'left', 
   },
   musicImage: {
-    width: 300, // Ajustez en fonction de la largeur disponible
-    height: 100, // Ajustez en fonction de la hauteur disponible
-    marginTop: 0, // Espace entre le texte et l'image
-    alignSelf: 'center' // Centre l'image horizontalement
-  } 
+    width: 330, 
+    height: 100, 
+    marginTop: 0, 
+    alignSelf: 'center' 
+  },
+  purpleRectangle: {
+    position: 'absolute',
+    bottom: -180, 
+    left: 20,
+    right: 20,
+    backgroundColor: '#C46CFF',
+    height: 180,
+    borderRadius: 18,
+    transform: [{ rotate: '6deg' }], 
+    zIndex: -1, 
+  }
+   
 });
