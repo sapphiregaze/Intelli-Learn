@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
   },
   headerRectangle: {
     position: 'absolute',
-    bottom: -170,
+    bottom: -190,
     left: 20,
     right: 20,
     backgroundColor: 'white',
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
   },
   purpleRectangle: {
     position: 'absolute',
-    bottom: -180, 
+    bottom: -200, 
     left: 20,
     right: 20,
     backgroundColor: '#C46CFF',
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'left', 
-    marginTop: -250,
+    marginTop: -230,
     marginLeft: 30, 
   },
   roundedButtonBlue: {
