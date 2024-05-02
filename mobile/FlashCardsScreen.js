@@ -38,7 +38,7 @@ export default function TestScreen() {
         </TouchableOpacity>
         {/* White Rectangle */}
         <View style={styles.headerRectangle}>
-          <Text style={styles.headerRectangleText}>Create your best favorite Flashcards Playist All the time !</Text>
+          <Text style={styles.headerRectangleText}>Create your best favorite Flashcards Playlist all the time !</Text>
           <Image
             source={require('./assets/music.jpg')}
             style={styles.musicImage}
@@ -46,6 +46,15 @@ export default function TestScreen() {
           />
         </View>
         <View style={styles.purpleRectangle}></View>
+      </View>
+
+          <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.roundedButtonBlue}>
+          <Text style={styles.buttonText}>All</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.roundedButtonPurple}>
+          <Text style={styles.buttonText}>Camera Screen</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.content}>
@@ -200,6 +209,30 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     transform: [{ rotate: '6deg' }], 
     zIndex: -1, 
-  }
-   
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'left',
+    marginTop: 200,
+    marginLeft: 30,
+  }, 
+  roundedButtonBlue: {
+    backgroundColor: '#597DFF',
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginRight: 10, 
+  },
+  roundedButtonPurple: {
+    backgroundColor: '#C46CFF',
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
