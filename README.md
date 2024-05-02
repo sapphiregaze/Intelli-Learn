@@ -2,6 +2,11 @@
 
 🚀 Leveraging the power of AI to facilitate efficient learning for students.
 
+
+![banner](https://github.com/I2S9/Intelli-Learn/assets/111307883/aa133606-b202-4239-abaf-3c86096a0ecd)
+
+
+
 ## Introduction
 
 IntelliLearn is a project submitted to the Google AI Hackathon, aimed at building a creative app that utilizes Google’s Generative AI tools to enhance the learning experience for students.
