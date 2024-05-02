@@ -48,6 +48,15 @@ export default function TestScreen() {
         <View style={styles.purpleRectangle}></View>
       </View>
 
+      <View style={styles.flashcardContainer}>
+        <View style={styles.flashcard}>
+          <Text style={styles.flashcardText}>FlashCard 1</Text>
+        </View>
+        <View style={styles.flashcard}>
+          <Text style={styles.flashcardText}>FlashCard 2</Text>
+        </View>
+      </View>
+
           <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.roundedButtonBlue}>
           <Text style={styles.buttonText}>All</Text>
@@ -212,10 +221,10 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'left',
-    marginTop: 200,
-    marginLeft: 30,
-  }, 
+    justifyContent: 'left', 
+    marginTop: -250,
+    marginLeft: 30, 
+  },
   roundedButtonBlue: {
     backgroundColor: '#597DFF',
     borderRadius: 30,
@@ -234,5 +243,29 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  flashcardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 300, 
+    paddingHorizontal: 25,
+  },
+  flashcard: {
+    width: 150, 
+    height: 150, 
+    backgroundColor: 'white',
+    borderRadius: 20, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 4,
+  },
+  flashcardText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#597DFF', 
   },
 });
