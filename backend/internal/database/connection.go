@@ -37,5 +37,5 @@ func InitDatabase() {
 		log.Fatal(err)
 	}
 
-	log.Println("Created users table if not exists!")
+	log.Println("Created tables if not exists!")
 }

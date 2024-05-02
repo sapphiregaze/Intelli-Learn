@@ -12,11 +12,37 @@ func CreateUsersTable() error {
 	defer db.Close()
 
 	_, err = db.Exec(`
-		CREATE TABLE IF NOT EXISTS users (
+		CREATE TABLE IF NOT EXISTS Users (
 			id INT AUTO_INCREMENT PRIMARY KEY,
 			email VARCHAR(255) NOT NULL UNIQUE,
 			username VARCHAR(255) NOT NULL UNIQUE,
 			password_hash VARCHAR(255) NOT NULL
+		)
+	`)
+	if err != nil {
+		return err
+	}
+
+	_, err = db.Exec(`
+		CREATE TABLE IF NOT EXISTS Folders (
+			id INT AUTO_INCREMENT PRIMARY KEY,
+			user_id INT,
+			name VARCHAR(255),
+			FOREIGN KEY (user_id) REFERENCES Users(id)
+		)
+	`)
+	if err != nil {
+		return err
+	}
+
+	_, err = db.Exec(`
+		CREATE TABLE IF NOT EXISTS Notes (
+			id INT AUTO_INCREMENT PRIMARY KEY,
+			user_id INT,
+			folder_id INT,
+			file_path VARCHAR(255),
+			FOREIGN KEY (user_id) REFERENCES Users(id),
+			FOREIGN KEY (folder_id) REFERENCES Folders(id)
 		)
 	`)
 	if err != nil {
@@ -35,7 +61,7 @@ func SelectUserByUsername(username string) (User, error) {
 	}
 	defer db.Close()
 
-	err = db.QueryRow("SELECT email, username, password_hash FROM users WHERE username = ?", username).Scan(&user.Email, &user.Username, &user.PasswordHash)
+	err = db.QueryRow("SELECT email, username, password_hash FROM Users WHERE username = ?", username).Scan(&user.Email, &user.Username, &user.PasswordHash)
 	if err != nil {
 		return user, err
 	}
@@ -52,7 +78,7 @@ func SelectUserByEmail(email string) (User, error) {
 	}
 	defer db.Close()
 
-	err = db.QueryRow("SELECT email, username, password_hash FROM users WHERE email = ?", email).Scan(&user.Email, &user.Username, &user.PasswordHash)
+	err = db.QueryRow("SELECT email, username, password_hash FROM Users WHERE email = ?", email).Scan(&user.Email, &user.Username, &user.PasswordHash)
 	if err != nil {
 		return user, err
 	}
@@ -67,7 +93,7 @@ func InsertUser(email, username, passwordHash string) error {
 	}
 	defer db.Close()
 
-	_, err = db.Exec("INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)", email, username, passwordHash)
+	_, err = db.Exec("INSERT INTO Users (email, username, password_hash) VALUES (?, ?, ?)", email, username, passwordHash)
 	if err != nil {
 		return err
 	}

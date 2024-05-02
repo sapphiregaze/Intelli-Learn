@@ -25,4 +25,5 @@ go.work
 .env.*
 !.env.example
 
-output.*
+/output
+texput.log
