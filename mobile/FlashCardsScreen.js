@@ -36,6 +36,35 @@ export default function TestScreen() {
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image source={require('./assets/profile.png')} style={styles.headerIconProfile} />
         </TouchableOpacity>
+
+        {/* White Rectangle */}
+        <View style={styles.headerRectangle}>
+          <Text style={styles.headerRectangleText}>Create your best favorite Flashcards Playlist all the time !</Text>
+          <Image
+            source={require('./assets/music.jpg')}
+            style={styles.musicImage}
+            resizeMode="contain" 
+          />
+        </View>
+        <View style={styles.purpleRectangle}></View>
+      </View>
+
+      <View style={styles.flashcardContainer}>
+        <View style={styles.flashcard}>
+          <Text style={styles.flashcardText}>FlashCard 1</Text>
+        </View>
+        <View style={styles.flashcard}>
+          <Text style={styles.flashcardText}>FlashCard 2</Text>
+        </View>
+      </View>
+
+          <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.roundedButtonBlue}>
+          <Text style={styles.buttonText}>All</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.roundedButtonPurple}>
+          <Text style={styles.buttonText}>Camera Screen</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.content}>
@@ -150,4 +179,94 @@ const styles = StyleSheet.create({
     height: 40,                 
     resizeMode: 'contain'     
   },
+  headerRectangle: {
+    position: 'absolute',
+    bottom: -190,
+    left: 20,
+    right: 20,
+    backgroundColor: 'white',
+    height: 170,
+    borderRadius: 18,
+    justifyContent: 'flex-start', 
+    alignItems: 'center',     
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 12,
+    paddingTop: 18, 
+    paddingHorizontal: 20,
+  },
+  headerRectangleText: {
+    color: '#C46CFF',
+    fontSize: 18, 
+    fontWeight: 'bold',
+    textAlign: 'left', 
+  },
+  musicImage: {
+    width: 330, 
+    height: 100, 
+    marginTop: 0, 
+    alignSelf: 'center' 
+  },
+  purpleRectangle: {
+    position: 'absolute',
+    bottom: -200, 
+    left: 20,
+    right: 20,
+    backgroundColor: '#C46CFF',
+    height: 180,
+    borderRadius: 18,
+    transform: [{ rotate: '6deg' }], 
+    zIndex: -1, 
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'left', 
+    marginTop: -230,
+    marginLeft: 30, 
+  },
+  roundedButtonBlue: {
+    backgroundColor: '#597DFF',
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginRight: 10, 
+  },
+  roundedButtonPurple: {
+    backgroundColor: '#C46CFF',
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  flashcardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 300, 
+    paddingHorizontal: 25,
+  },
+  flashcard: {
+    width: 150, 
+    height: 150, 
+    backgroundColor: 'white',
+    borderRadius: 20, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 4,
+  },
+  flashcardText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#597DFF', 
+  }, 
 });
