@@ -1,6 +1,7 @@
 # IntelliLearn: Leveraging the power of AI to facilitate efficient learning for students! 🚀
 
 ![banner](https://github.com/I2S9/Intelli-Learn/assets/111307883/aa133606-b202-4239-abaf-3c86096a0ecd)
+[![Video Banner](https://img.youtube.com/vi/0NFzFWdICyg/hqdefault.jpg)](https://youtu.be/0NFzFWdICyg)
 
 ## I. Introduction 👀
 
