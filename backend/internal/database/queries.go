@@ -100,3 +100,18 @@ func InsertUser(email, username, passwordHash string) error {
 
 	return nil
 }
+
+func InsertFolder(userId int, name string) error {
+	db, err := sql.Open("mysql", cfg.FormatDSN())
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	_, err = db.Exec("INSERT INTO Folders (user_id, name) VALUES (?, ?)", userId, name)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

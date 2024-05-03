@@ -29,6 +29,7 @@ func InitRoutes() routes {
 
 	r.addAuth(v1)
 	r.addUpload(v1)
+	r.addCreate(v1)
 
 	return r
 }
